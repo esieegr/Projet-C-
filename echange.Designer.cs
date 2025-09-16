@@ -31,7 +31,7 @@
             Rechercher = new TextBox();
             button_refuser = new Button();
             button_accepter = new Button();
-            utilisateur = new ComboBox();
+            listbox_type = new ComboBox();
             button_rechercher = new Button();
             listBox_offres = new ListBox();
             label_nbr_offree = new Label();
@@ -64,13 +64,14 @@
             button_accepter.Text = "Accepter";
             button_accepter.UseVisualStyleBackColor = true;
             // 
-            // utilisateur
+            // listbox_type
             // 
-            utilisateur.FormattingEnabled = true;
-            utilisateur.Location = new Point(346, 34);
-            utilisateur.Name = "utilisateur";
-            utilisateur.Size = new Size(119, 28);
-            utilisateur.TabIndex = 10;
+            listbox_type.FormattingEnabled = true;
+            listbox_type.Location = new Point(346, 34);
+            listbox_type.Name = "listbox_type";
+            listbox_type.Size = new Size(119, 28);
+            listbox_type.TabIndex = 10;
+            listbox_type.SelectedIndexChanged += type_SelectedIndexChanged;
             // 
             // button_rechercher
             // 
@@ -120,13 +121,13 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(648, 644);
+            ClientSize = new Size(635, 671);
             Controls.Add(label1);
             Controls.Add(label_nbr_offree);
             Controls.Add(button1);
             Controls.Add(listBox_offres);
             Controls.Add(button_rechercher);
-            Controls.Add(utilisateur);
+            Controls.Add(listbox_type);
             Controls.Add(button_accepter);
             Controls.Add(button_refuser);
             Controls.Add(Rechercher);
@@ -141,7 +142,7 @@
         private TextBox Rechercher;
         private Button button_refuser;
         private Button button_accepter;
-        private ComboBox utilisateur;
+        private ComboBox listbox_type;
         private Button button_rechercher;
         private ListBox listBox_offres;
         private Label label_nbr_offree;

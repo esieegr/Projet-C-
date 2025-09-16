@@ -1,3 +1,6 @@
+using Microsoft.VisualBasic.Devices;
+using Microsoft.EntityFrameworkCore;
+
 namespace Projet_C_
 {
     internal static class Program
@@ -8,10 +11,15 @@ namespace Projet_C_
         [STAThread]
         static void Main()
         {
+
+            using var db = new SchoolContext();
+            db.Database.Migrate(); // crée la DB + applique les migrations
+
+
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new form_echange());
+            Application.Run(new menu());
         }
     }
 }

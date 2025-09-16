@@ -12,9 +12,11 @@ namespace Projet_C_
 {
     public partial class mon_offre: Form
     {
-        public mon_offre()
+        menu m;
+        public mon_offre(menu m)
         {
             InitializeComponent();
+            this.m = m;
         }
     }
 }
