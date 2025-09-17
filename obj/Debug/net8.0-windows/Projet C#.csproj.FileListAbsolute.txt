@@ -3,12 +3,7 @@ C:\Users\Gianni\source\repos\Projet C#\bin\Debug\net8.0-windows\Projet C#.deps.j
 C:\Users\Gianni\source\repos\Projet C#\bin\Debug\net8.0-windows\Projet C#.runtimeconfig.json
 C:\Users\Gianni\source\repos\Projet C#\bin\Debug\net8.0-windows\Projet C#.dll
 C:\Users\Gianni\source\repos\Projet C#\bin\Debug\net8.0-windows\Projet C#.pdb
-C:\Users\Gianni\source\repos\Projet C#\obj\Debug\net8.0-windows\Projet_C_.administration.resources
-C:\Users\Gianni\source\repos\Projet C#\obj\Debug\net8.0-windows\Projet_C_.cr_offres.resources
 C:\Users\Gianni\source\repos\Projet C#\obj\Debug\net8.0-windows\Projet_C_.form_echange.resources
-C:\Users\Gianni\source\repos\Projet C#\obj\Debug\net8.0-windows\Projet_C_.inventaire.resources
-C:\Users\Gianni\source\repos\Projet C#\obj\Debug\net8.0-windows\Projet_C_.menu.resources
-C:\Users\Gianni\source\repos\Projet C#\obj\Debug\net8.0-windows\Projet_C_.mon_offre.resources
 C:\Users\Gianni\source\repos\Projet C#\obj\Debug\net8.0-windows\Projet C#.csproj.GenerateResource.cache
 C:\Users\Gianni\source\repos\Projet C#\obj\Debug\net8.0-windows\Projet C#.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Gianni\source\repos\Projet C#\obj\Debug\net8.0-windows\Projet C#.AssemblyInfoInputs.cache
@@ -147,3 +142,8 @@ C:\Users\Gianni\source\repos\Projet C#\bin\Debug\net8.0-windows\runtimes\win-x86
 C:\Users\Gianni\source\repos\Projet C#\bin\Debug\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 C:\Users\Gianni\source\repos\Projet C#\obj\Debug\net8.0-windows\Projet C#.csproj.AssemblyReference.cache
 C:\Users\Gianni\source\repos\Projet C#\obj\Debug\net8.0-windows\Projet C#.csproj.Up2Date
+C:\Users\Gianni\source\repos\Projet C#\obj\Debug\net8.0-windows\Projet_C_.form_administration.resources
+C:\Users\Gianni\source\repos\Projet C#\obj\Debug\net8.0-windows\Projet_C_.form_cr_offres.resources
+C:\Users\Gianni\source\repos\Projet C#\obj\Debug\net8.0-windows\Projet_C_.form_inventaire.resources
+C:\Users\Gianni\source\repos\Projet C#\obj\Debug\net8.0-windows\Projet_C_.form_menu.resources
+C:\Users\Gianni\source\repos\Projet C#\obj\Debug\net8.0-windows\Projet_C_.form_mon_offre.resources

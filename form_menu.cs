@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projet_C_.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Projet_C_
 {
-    public partial class menu : Form
+    public partial class form_menu : Form
     {
-        public menu()
+        public form_menu()
         {
             InitializeComponent();
         }
@@ -21,7 +22,7 @@ namespace Projet_C_
         private void button1_Click(object sender, EventArgs e)
         {
             // TODO: ouvre la fenêtre d’admin, ou juste un message pour tester
-            administration Form = new administration(this);
+            form_administration Form = new form_administration(this);
 
             // Ouvre la fenêtre
             Form.Show();  // non bloquant
@@ -41,24 +42,31 @@ namespace Projet_C_
         private void button3_Click_1(object sender, EventArgs e)
         {
             // TODO: ouvre la fenêtre d’admin, ou juste un message pour tester
-            inventaire Form = new inventaire(this);
+            form_inventaire Form = new form_inventaire(this);
 
             // Ouvre la fenêtre
             Form.Show();  // non bloquant
         }
 
-        public string get_ComboBoxLogin() => (string)comboBox_login.SelectedItem;
-        public void set_ComboBoxLogin(List<string> list)
+        public class_utilisateur get_ComboBoxLogin() => (class_utilisateur)comboBox_login.SelectedItem;
+        public void set_ComboBoxLogin(List<class_utilisateur> list)
         {
             comboBox_login.Items.Clear();
+            foreach (class_utilisateur utilisateur in list)
+            {
+                comboBox_login.Items.Add(utilisateur);
+            }
+        }
 
-            comboBox_login.Items.AddRange(list.ToArray());
+        public void delete_ComboBoxLogin(class_utilisateur utilisateur)
+        {
+            comboBox_login.Items.Remove(utilisateur);
 
         }
 
         private void button_creer_offre_Click_1(object sender, EventArgs e)
         {
-            cr_offres Form = new cr_offres(this);
+            form_cr_offres Form = new form_cr_offres(this);
 
             // Ouvre la fenêtre
             Form.Show();  // non bloquant

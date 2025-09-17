@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Projet_C_
 {
-    public partial class mon_offre: Form
+    public partial class form_mon_offre: Form
     {
-        menu m;
-        public mon_offre(menu m)
+        form_menu m;
+        public form_mon_offre(form_menu m)
         {
             InitializeComponent();
             this.m = m;

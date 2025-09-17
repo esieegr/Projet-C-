@@ -1,5 +1,6 @@
 using Microsoft.VisualBasic.Devices;
 using Microsoft.EntityFrameworkCore;
+using Projet_C_.Data;
 
 namespace Projet_C_
 {
@@ -13,13 +14,12 @@ namespace Projet_C_
         {
 
             using var db = new SchoolContext();
-            db.Database.Migrate(); // crée la DB + applique les migrations
 
 
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new menu());
+            Application.Run(new form_menu());
         }
     }
 }

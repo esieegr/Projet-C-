@@ -1,6 +1,6 @@
 ﻿namespace Projet_C_
 {
-    partial class Inventaire
+    partial class form_inventaire
     {
         /// <summary>
         /// Required designer variable.
@@ -36,6 +36,9 @@
             textBox2 = new TextBox();
             label1 = new Label();
             label2 = new Label();
+            comboBox_type = new ComboBox();
+            comboBox_etat = new ComboBox();
+            button4 = new Button();
             SuspendLayout();
             // 
             // listBox_inventaire
@@ -61,7 +64,7 @@
             button2.Name = "button2";
             button2.Size = new Size(146, 29);
             button2.TabIndex = 2;
-            button2.Text = "Supprimer un objet";
+            button2.Text = "Supprimer l'objet";
             button2.UseVisualStyleBackColor = true;
             // 
             // button3
@@ -84,7 +87,7 @@
             // 
             textBox2.Location = new Point(64, 94);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(319, 27);
+            textBox2.Size = new Size(238, 27);
             textBox2.TabIndex = 5;
             // 
             // label1
@@ -105,11 +108,39 @@
             label2.TabIndex = 7;
             label2.Text = "Nom de l'objet";
             // 
-            // Inventaire
+            // comboBox_type
+            // 
+            comboBox_type.FormattingEnabled = true;
+            comboBox_type.Location = new Point(308, 41);
+            comboBox_type.Name = "comboBox_type";
+            comboBox_type.Size = new Size(151, 28);
+            comboBox_type.TabIndex = 8;
+            // 
+            // comboBox_etat
+            // 
+            comboBox_etat.FormattingEnabled = true;
+            comboBox_etat.Location = new Point(308, 94);
+            comboBox_etat.Name = "comboBox_etat";
+            comboBox_etat.Size = new Size(151, 28);
+            comboBox_etat.TabIndex = 9;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(329, 461);
+            button4.Name = "button4";
+            button4.Size = new Size(191, 29);
+            button4.TabIndex = 10;
+            button4.Text = "Disponible/Indisponible";
+            button4.UseVisualStyleBackColor = true;
+            // 
+            // inventaire
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(502, 537);
+            ClientSize = new Size(544, 537);
+            Controls.Add(button4);
+            Controls.Add(comboBox_etat);
+            Controls.Add(comboBox_type);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(textBox2);
@@ -118,7 +149,7 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(listBox_inventaire);
-            Name = "Inventaire";
+            Name = "inventaire";
             Text = "Inventaire";
             ResumeLayout(false);
             PerformLayout();
@@ -134,5 +165,8 @@
         private TextBox textBox2;
         private Label label1;
         private Label label2;
+        private ComboBox comboBox_type;
+        private ComboBox comboBox_etat;
+        private Button button4;
     }
 }

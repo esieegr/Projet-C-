@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace Projet_C_
 {
-    public partial class cr_offres : Form
+    public partial class form_cr_offres : Form
     {
-        menu m;
-        public cr_offres(menu m)
+        form_menu m;
+        public form_cr_offres(form_menu m)
         {
             InitializeComponent();
 
@@ -23,7 +23,7 @@ namespace Projet_C_
 
         private void button1_Click(object sender, EventArgs e)
         {
-            mon_offre Form = new mon_offre(this.m);
+            form_mon_offre Form = new form_mon_offre(this.m);
 
             // Ouvre la fenêtre
             Form.Show();  // non bloquant

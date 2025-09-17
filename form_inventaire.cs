@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Projet_C_
 {
-    public partial class Inventaire: Form
+    public partial class form_inventaire: Form
     {
-        public Inventaire()
+        public form_inventaire(form_menu m)
         {
             InitializeComponent();
         }

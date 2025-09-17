@@ -2,8 +2,8 @@ namespace Projet_C_
 {
     public partial class form_echange : Form
     {
-        menu m;
-        public form_echange(menu m)
+        form_menu m;
+        public form_echange(form_menu m)
         {
             InitializeComponent();
 

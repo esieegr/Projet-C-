@@ -1,6 +1,6 @@
 ﻿namespace Projet_C_
 {
-    partial class cr_offres
+    partial class form_cr_offres
     {
         /// <summary>
         /// Required designer variable.

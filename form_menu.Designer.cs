@@ -1,6 +1,6 @@
 ﻿namespace Projet_C_
 {
-    partial class menu
+    partial class form_menu
     {
         /// <summary>
         /// Required designer variable.
