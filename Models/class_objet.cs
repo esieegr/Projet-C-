@@ -6,23 +6,25 @@ using System.Threading.Tasks;
 
 namespace Projet_C_.Models
 {
-    public class class_objet
+    public class class_objet : class_articleType
     {
-        public string nom { get; set; } = "";
+        public string Nom { get; set; } = "";
         public string type_objet { get; set; } = "";
         static int static_id_objet = 0;
+        public Etat EtatObjet { get; set; } = new Etat();
         public int Id { get; set; }
-        enum etat
+
+        public enum Etat
         {
-            bon, mauvais, usage
+            Bon, Neuf, Usage
         }
-        bool disponible;
+        public bool disponible;
 
         public class_objet() { }
 
         public class_objet(string nom, string type_objet, bool disponible)
         {
-            this.nom = nom;
+            this.Nom = nom;
             this.type_objet = type_objet;
             Id = static_id_objet++;
             this.disponible = disponible;

@@ -12,6 +12,12 @@ namespace Projet_C_.Data
         public DbSet<Models.class_echange> Echanges { get; set; }
         public DbSet<Models.class_objet> Objets { get; set; }
 
+        public string GetDatabasePath()
+        {
+            return Database.GetDbConnection().DataSource;
+        }
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)

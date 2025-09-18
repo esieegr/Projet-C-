@@ -29,16 +29,18 @@
         private void InitializeComponent()
         {
             listBox_inventaire = new ListBox();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            button_ajouter_objet = new Button();
+            button_supprimer_objet = new Button();
+            button_sauvegarder = new Button();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
+            label_description = new Label();
+            label_nom = new Label();
             comboBox_type = new ComboBox();
             comboBox_etat = new ComboBox();
             button4 = new Button();
+            label_type = new Label();
+            label_etat = new Label();
             SuspendLayout();
             // 
             // listBox_inventaire
@@ -49,32 +51,35 @@
             listBox_inventaire.Size = new Size(319, 284);
             listBox_inventaire.TabIndex = 0;
             // 
-            // button1
+            // button_ajouter_objet
             // 
-            button1.Location = new Point(257, 127);
-            button1.Name = "button1";
-            button1.Size = new Size(126, 29);
-            button1.TabIndex = 1;
-            button1.Text = "Ajouter l'objet";
-            button1.UseVisualStyleBackColor = true;
+            button_ajouter_objet.Location = new Point(257, 127);
+            button_ajouter_objet.Name = "button_ajouter_objet";
+            button_ajouter_objet.Size = new Size(126, 29);
+            button_ajouter_objet.TabIndex = 1;
+            button_ajouter_objet.Text = "Ajouter l'objet";
+            button_ajouter_objet.UseVisualStyleBackColor = true;
+            button_ajouter_objet.Click += button_add_Click;
             // 
-            // button2
+            // button_supprimer_objet
             // 
-            button2.Location = new Point(156, 461);
-            button2.Name = "button2";
-            button2.Size = new Size(146, 29);
-            button2.TabIndex = 2;
-            button2.Text = "Supprimer l'objet";
-            button2.UseVisualStyleBackColor = true;
+            button_supprimer_objet.Location = new Point(156, 461);
+            button_supprimer_objet.Name = "button_supprimer_objet";
+            button_supprimer_objet.Size = new Size(146, 29);
+            button_supprimer_objet.TabIndex = 2;
+            button_supprimer_objet.Text = "Supprimer l'objet";
+            button_supprimer_objet.UseVisualStyleBackColor = true;
+            button_supprimer_objet.Click += button_supprimer_objet_Click;
             // 
-            // button3
+            // button_sauvegarder
             // 
-            button3.Location = new Point(156, 496);
-            button3.Name = "button3";
-            button3.Size = new Size(146, 29);
-            button3.TabIndex = 3;
-            button3.Text = "Sauvegarder";
-            button3.UseVisualStyleBackColor = true;
+            button_sauvegarder.Location = new Point(156, 496);
+            button_sauvegarder.Name = "button_sauvegarder";
+            button_sauvegarder.Size = new Size(146, 29);
+            button_sauvegarder.TabIndex = 3;
+            button_sauvegarder.Text = "Sauvegarder";
+            button_sauvegarder.UseVisualStyleBackColor = true;
+            button_sauvegarder.Click += button_sauvegarder_Click;
             // 
             // textBox1
             // 
@@ -90,23 +95,23 @@
             textBox2.Size = new Size(238, 27);
             textBox2.TabIndex = 5;
             // 
-            // label1
+            // label_description
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(64, 71);
-            label1.Name = "label1";
-            label1.Size = new Size(85, 20);
-            label1.TabIndex = 6;
-            label1.Text = "Déscription";
+            label_description.AutoSize = true;
+            label_description.Location = new Point(64, 71);
+            label_description.Name = "label_description";
+            label_description.Size = new Size(85, 20);
+            label_description.TabIndex = 6;
+            label_description.Text = "Description";
             // 
-            // label2
+            // label_nom
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(64, 13);
-            label2.Name = "label2";
-            label2.Size = new Size(109, 20);
-            label2.TabIndex = 7;
-            label2.Text = "Nom de l'objet";
+            label_nom.AutoSize = true;
+            label_nom.Location = new Point(64, 13);
+            label_nom.Name = "label_nom";
+            label_nom.Size = new Size(109, 20);
+            label_nom.TabIndex = 7;
+            label_nom.Text = "Nom de l'objet";
             // 
             // comboBox_type
             // 
@@ -133,23 +138,43 @@
             button4.Text = "Disponible/Indisponible";
             button4.UseVisualStyleBackColor = true;
             // 
-            // inventaire
+            // label_type
+            // 
+            label_type.AutoSize = true;
+            label_type.Location = new Point(308, 13);
+            label_type.Name = "label_type";
+            label_type.Size = new Size(40, 20);
+            label_type.TabIndex = 11;
+            label_type.Text = "Type";
+            // 
+            // label_etat
+            // 
+            label_etat.AutoSize = true;
+            label_etat.Location = new Point(308, 71);
+            label_etat.Name = "label_etat";
+            label_etat.Size = new Size(35, 20);
+            label_etat.TabIndex = 12;
+            label_etat.Text = "État";
+            // 
+            // form_inventaire
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(544, 537);
+            Controls.Add(label_etat);
+            Controls.Add(label_type);
             Controls.Add(button4);
             Controls.Add(comboBox_etat);
             Controls.Add(comboBox_type);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(label_nom);
+            Controls.Add(label_description);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(button_sauvegarder);
+            Controls.Add(button_supprimer_objet);
+            Controls.Add(button_ajouter_objet);
             Controls.Add(listBox_inventaire);
-            Name = "inventaire";
+            Name = "form_inventaire";
             Text = "Inventaire";
             ResumeLayout(false);
             PerformLayout();
@@ -158,15 +183,17 @@
         #endregion
 
         private ListBox listBox_inventaire;
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private Button button_ajouter_objet;
+        private Button button_supprimer_objet;
+        private Button button_sauvegarder;
         private TextBox textBox1;
         private TextBox textBox2;
-        private Label label1;
-        private Label label2;
+        private Label label_description;
+        private Label label_nom;
         private ComboBox comboBox_type;
         private ComboBox comboBox_etat;
         private Button button4;
+        private Label label_type;
+        private Label label_etat;
     }
 }

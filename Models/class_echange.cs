@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projet_C_.Models
 {
-    public class class_echange : class_articleType
+    public class class_echange
     {
         public int Id { get; set; }
         public int utilisateur_proposant { get; set; }
