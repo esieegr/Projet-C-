@@ -10,14 +10,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Projet_C_.Data;          // SchoolContext
-using Projet_C_.Models;
 using Microsoft.EntityFrameworkCore;        // class_utilisateur
 
 namespace Projet_C_
 {
     public partial class form_administration : Form
     {
-        private readonly form_menu m;
+        private readonly form_menu? m;
 
         // Liste de travail en mémoire (bindée à la ListBox)
         private BindingList<class_utilisateur> _draft = new();
@@ -26,6 +25,15 @@ namespace Projet_C_
         {
             InitializeComponent();
             this.m = m;
+
+            // charge la BDD -> draft -> ListBox
+            Load += (_, __) => LoadDraftFromDb();
+        }
+
+        public form_administration()
+        {
+            InitializeComponent();
+            this.m = null;
 
             // charge la BDD -> draft -> ListBox
             Load += (_, __) => LoadDraftFromDb();
@@ -117,8 +125,8 @@ namespace Projet_C_
             // Recharger depuis la DB pour récupérer les Id auto et rafraîchir l’UI + menu
             LoadDraftFromDb();
 
-            var allAfterSave = db.Utilisateurs.AsNoTracking().OrderBy(u => u.Pseudo).ToList();
-            m.set_ComboBoxLogin(allAfterSave); // met à jour la ComboBox du menu
+            // La gestion des utilisateurs est maintenant gérée par UserManager
+            // Plus besoin de mettre à jour la ComboBox du menu
 
             MessageBox.Show("Modifications sauvegardées.");
         }
