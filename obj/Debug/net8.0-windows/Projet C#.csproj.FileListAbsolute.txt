@@ -147,3 +147,152 @@ C:\Users\Gianni\source\repos\Projet C#\obj\Debug\net8.0-windows\Projet_C_.form_c
 C:\Users\Gianni\source\repos\Projet C#\obj\Debug\net8.0-windows\Projet_C_.form_inventaire.resources
 C:\Users\Gianni\source\repos\Projet C#\obj\Debug\net8.0-windows\Projet_C_.form_menu.resources
 C:\Users\Gianni\source\repos\Projet C#\obj\Debug\net8.0-windows\Projet_C_.form_mon_offre.resources
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\Projet C#.exe
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\Projet C#.deps.json
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\Projet C#.runtimeconfig.json
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\Projet C#.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\Projet C#.pdb
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\Humanizer.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\Microsoft.Build.Locator.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\Microsoft.CodeAnalysis.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\Microsoft.CodeAnalysis.CSharp.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\Microsoft.CodeAnalysis.Workspaces.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\Microsoft.Data.Sqlite.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\Microsoft.EntityFrameworkCore.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\Microsoft.EntityFrameworkCore.Design.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\Microsoft.EntityFrameworkCore.Sqlite.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\Microsoft.Extensions.Caching.Abstractions.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\Microsoft.Extensions.Caching.Memory.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyModel.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\Microsoft.Extensions.Options.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\Mono.TextTemplating.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\SQLitePCLRaw.batteries_v2.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\SQLitePCLRaw.core.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\SQLitePCLRaw.provider.e_sqlite3.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\System.Composition.AttributedModel.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\System.Composition.Convention.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\System.Composition.Hosting.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\System.Composition.Runtime.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\System.Composition.TypedParts.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\System.Diagnostics.DiagnosticSource.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\System.IO.Pipelines.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\System.Text.Encodings.Web.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\System.Text.Json.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\cs\Microsoft.CodeAnalysis.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\de\Microsoft.CodeAnalysis.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\es\Microsoft.CodeAnalysis.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\fr\Microsoft.CodeAnalysis.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\it\Microsoft.CodeAnalysis.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\ja\Microsoft.CodeAnalysis.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\ko\Microsoft.CodeAnalysis.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\pl\Microsoft.CodeAnalysis.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\ru\Microsoft.CodeAnalysis.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\tr\Microsoft.CodeAnalysis.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\runtimes\browser-wasm\nativeassets\net8.0\e_sqlite3.a
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\runtimes\linux-arm\native\libe_sqlite3.so
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\runtimes\linux-arm64\native\libe_sqlite3.so
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\runtimes\linux-armel\native\libe_sqlite3.so
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\runtimes\linux-mips64\native\libe_sqlite3.so
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\runtimes\linux-musl-arm\native\libe_sqlite3.so
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\runtimes\linux-musl-arm64\native\libe_sqlite3.so
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\runtimes\linux-musl-s390x\native\libe_sqlite3.so
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\runtimes\linux-musl-x64\native\libe_sqlite3.so
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\runtimes\linux-ppc64le\native\libe_sqlite3.so
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\runtimes\linux-s390x\native\libe_sqlite3.so
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\runtimes\linux-x64\native\libe_sqlite3.so
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\runtimes\linux-x86\native\libe_sqlite3.so
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\runtimes\maccatalyst-arm64\native\libe_sqlite3.dylib
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\runtimes\maccatalyst-x64\native\libe_sqlite3.dylib
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\runtimes\osx-arm64\native\libe_sqlite3.dylib
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\runtimes\osx-x64\native\libe_sqlite3.dylib
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\runtimes\win-arm\native\e_sqlite3.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\runtimes\win-arm64\native\e_sqlite3.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\runtimes\win-x64\native\e_sqlite3.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\runtimes\win-x86\native\e_sqlite3.dll
+D:\Travail\Projet-C-\bin\Debug\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+D:\Travail\Projet-C-\obj\Debug\net8.0-windows\Projet C#.csproj.AssemblyReference.cache
+D:\Travail\Projet-C-\obj\Debug\net8.0-windows\Projet_C_.form_administration.resources
+D:\Travail\Projet-C-\obj\Debug\net8.0-windows\Projet_C_.form_cr_offres.resources
+D:\Travail\Projet-C-\obj\Debug\net8.0-windows\Projet_C_.form_echange.resources
+D:\Travail\Projet-C-\obj\Debug\net8.0-windows\Projet_C_.form_inventaire.resources
+D:\Travail\Projet-C-\obj\Debug\net8.0-windows\Projet_C_.form_menu.resources
+D:\Travail\Projet-C-\obj\Debug\net8.0-windows\Projet_C_.form_mon_offre.resources
+D:\Travail\Projet-C-\obj\Debug\net8.0-windows\Projet C#.csproj.GenerateResource.cache
+D:\Travail\Projet-C-\obj\Debug\net8.0-windows\Projet C#.GeneratedMSBuildEditorConfig.editorconfig
+D:\Travail\Projet-C-\obj\Debug\net8.0-windows\Projet C#.AssemblyInfoInputs.cache
+D:\Travail\Projet-C-\obj\Debug\net8.0-windows\Projet C#.AssemblyInfo.cs
+D:\Travail\Projet-C-\obj\Debug\net8.0-windows\Projet C#.csproj.CoreCompileInputs.cache
+D:\Travail\Projet-C-\obj\Debug\net8.0-windows\Projet C#.sourcelink.json
+D:\Travail\Projet-C-\obj\Debug\net8.0-windows\Projet C#.csproj.Up2Date
+D:\Travail\Projet-C-\obj\Debug\net8.0-windows\Projet C#.dll
+D:\Travail\Projet-C-\obj\Debug\net8.0-windows\refint\Projet C#.dll
+D:\Travail\Projet-C-\obj\Debug\net8.0-windows\Projet C#.pdb
+D:\Travail\Projet-C-\obj\Debug\net8.0-windows\Projet C#.genruntimeconfig.cache
+D:\Travail\Projet-C-\obj\Debug\net8.0-windows\ref\Projet C#.dll

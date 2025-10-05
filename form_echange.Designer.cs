@@ -48,7 +48,7 @@
             // 
             // button_refuser
             // 
-            button_refuser.Location = new Point(442, 593);
+            button_refuser.Location = new Point(442, 480);
             button_refuser.Name = "button_refuser";
             button_refuser.Size = new Size(134, 29);
             button_refuser.TabIndex = 8;
@@ -57,7 +57,7 @@
             // 
             // button_accepter
             // 
-            button_accepter.Location = new Point(66, 593);
+            button_accepter.Location = new Point(66, 480);
             button_accepter.Name = "button_accepter";
             button_accepter.Size = new Size(134, 29);
             button_accepter.TabIndex = 9;
@@ -87,7 +87,7 @@
             listBox_offres.FormattingEnabled = true;
             listBox_offres.Location = new Point(66, 108);
             listBox_offres.Name = "listBox_offres";
-            listBox_offres.Size = new Size(270, 464);
+            listBox_offres.Size = new Size(270, 350);
             listBox_offres.TabIndex = 12;
             // 
             // label_nbr_offree
@@ -95,7 +95,7 @@
             label_nbr_offree.AutoSize = true;
             label_nbr_offree.Location = new Point(66, 85);
             label_nbr_offree.Name = "label_nbr_offree";
-            label_nbr_offree.Size = new Size(118, 20);
+            label_nbr_offree.Size = new Size(80, 20);
             label_nbr_offree.TabIndex = 15;
             label_nbr_offree.Text = "Nombre d'offres";
             // 
@@ -110,7 +110,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(265, 593);
+            button1.Location = new Point(265, 480);
             button1.Name = "button1";
             button1.Size = new Size(120, 29);
             button1.TabIndex = 14;

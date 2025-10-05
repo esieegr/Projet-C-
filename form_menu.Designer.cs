@@ -28,82 +28,73 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button_administration = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            comboBox_login = new ComboBox();
-            button_creer_offre = new Button();
+            tabControl_menu = new TabControl();
+            tabPage_echange = new TabPage();
+            tabPage_inventaire = new TabPage();
+            tabPage_creer_offre = new TabPage();
+            tabControl_menu.SuspendLayout();
             SuspendLayout();
             // 
-            // button_administration
+            // tabControl_menu
             // 
-            button_administration.Location = new Point(123, 187);
-            button_administration.Name = "button_administration";
-            button_administration.Size = new Size(134, 29);
-            button_administration.TabIndex = 0;
-            button_administration.Text = "Administration";
-            button_administration.UseVisualStyleBackColor = true;
-            button_administration.Click += button1_Click;
+            tabControl_menu.Controls.Add(tabPage_echange);
+            tabControl_menu.Controls.Add(tabPage_inventaire);
+            tabControl_menu.Controls.Add(tabPage_creer_offre);
+            tabControl_menu.Dock = DockStyle.Fill;
+            tabControl_menu.Location = new Point(0, 0);
+            tabControl_menu.Name = "tabControl_menu";
+            tabControl_menu.SelectedIndex = 0;
+            tabControl_menu.Size = new Size(800, 650);
+            tabControl_menu.TabIndex = 0;
             // 
-            // button2
+            // tabPage_echange
             // 
-            button2.Location = new Point(347, 187);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 29);
-            button2.TabIndex = 1;
-            button2.Text = "Échange";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            tabPage_echange.Location = new Point(4, 29);
+            tabPage_echange.Name = "tabPage_echange";
+            tabPage_echange.Padding = new Padding(3);
+            tabPage_echange.Size = new Size(792, 617);
+            tabPage_echange.TabIndex = 0;
+            tabPage_echange.Text = "Échange";
+            tabPage_echange.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // tabPage_inventaire
             // 
-            button3.Location = new Point(541, 187);
-            button3.Name = "button3";
-            button3.Size = new Size(94, 29);
-            button3.TabIndex = 2;
-            button3.Text = "Inventaire";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click_1;
+            tabPage_inventaire.Location = new Point(4, 29);
+            tabPage_inventaire.Name = "tabPage_inventaire";
+            tabPage_inventaire.Padding = new Padding(3);
+            tabPage_inventaire.Size = new Size(792, 617);
+            tabPage_inventaire.TabIndex = 1;
+            tabPage_inventaire.Text = "Inventaire";
+            tabPage_inventaire.UseVisualStyleBackColor = true;
             // 
-            // comboBox_login
+            // tabPage_creer_offre
             // 
-            comboBox_login.FormattingEnabled = true;
-            comboBox_login.Location = new Point(320, 43);
-            comboBox_login.Name = "comboBox_login";
-            comboBox_login.Size = new Size(151, 28);
-            comboBox_login.TabIndex = 3;
-            // 
-            // button_creer_offre
-            // 
-            button_creer_offre.Location = new Point(127, 304);
-            button_creer_offre.Name = "button_creer_offre";
-            button_creer_offre.Size = new Size(130, 29);
-            button_creer_offre.TabIndex = 4;
-            button_creer_offre.Text = "Créer une offre";
-            button_creer_offre.UseVisualStyleBackColor = true;
-            button_creer_offre.Click += button_creer_offre_Click_1;
+            tabPage_creer_offre.Location = new Point(4, 29);
+            tabPage_creer_offre.Name = "tabPage_creer_offre";
+            tabPage_creer_offre.Padding = new Padding(3);
+            tabPage_creer_offre.Size = new Size(792, 617);
+            tabPage_creer_offre.TabIndex = 2;
+            tabPage_creer_offre.Text = "Créer une offre";
+            tabPage_creer_offre.UseVisualStyleBackColor = true;
             // 
             // menu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(button_creer_offre);
-            Controls.Add(comboBox_login);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button_administration);
+            ClientSize = new Size(800, 650);
+            Controls.Add(tabControl_menu);
+            MinimumSize = new Size(800, 650);
             Name = "menu";
             Text = "menu";
+            tabControl_menu.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Button button_administration;
-        private Button button2;
-        private Button button3;
-        private ComboBox comboBox_login;
-        private Button button_creer_offre;
+        private TabControl tabControl_menu;
+        private TabPage tabPage_echange;
+        private TabPage tabPage_inventaire;
+        private TabPage tabPage_creer_offre;
     }
 }

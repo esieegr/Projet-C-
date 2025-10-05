@@ -12,19 +12,20 @@ namespace Projet_C_
         [STAThread]
         static void Main()
         {
-
-            using var db = new SchoolContext();
-            {
-                db.Database.EnsureCreated();
-                // ou db.Database.Migrate(); si tu utilises les migrations
-            }
-            System.Diagnostics.Debug.WriteLine($"BDD SQLite => {db.GetDatabasePath()}");
-
+            InitialiserBaseDeDonnees();
 
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new form_menu());
+            Application.Run(new form_connexion());
+        }
+
+        private static void InitialiserBaseDeDonnees()
+        {
+            using var db = new SchoolContext();
+            db.Database.EnsureCreated();
+            // ou db.Database.Migrate(); si tu utilises les migrations
+            System.Diagnostics.Debug.WriteLine($"BDD SQLite => {db.GetDatabasePath()}");
         }
     }
 }
