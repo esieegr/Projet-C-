@@ -1,24 +1,21 @@
-﻿using Projet_C_.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using Projet_C_.Data;
 using Projet_C_.Models;
-using System;
+using System.ComponentModel;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.ComponentModel;
-using Microsoft.EntityFrameworkCore;
 using static Projet_C_.Models.class_objet;
 
 namespace Projet_C_
 {
     public partial class form_inventaire : Form
     {
-        private readonly form_menu _menu; // si besoin de notifier le menu après save (optionnel)
-        private BindingList<class_objet> _draft = new();
+        private readonly form_menu _menu;                 // utilisateur courant
+        private BindingList<class_objet> _draft = new();   // liste liée
+
+        // Id de l'utilisateur connecté (exposé par form_menu)
+        private int CurrentUserId => _menu?.CurrentUser?.Id ?? 0;
 
         public form_inventaire(form_menu m)
         {
@@ -32,16 +29,38 @@ namespace Projet_C_
             comboBox_type.SelectedIndex = 0;
             comboBox_etat.SelectedIndex = 0;
 
-            Load += (_, __) => LoadDraftFromDb();
+            // Assure le schéma (colonnes) puis charge la liste
+            this.Shown += async (_, __) =>
+            {
+                await EnsureSchemaAsync();
+                LoadDraftFromDb();
+            };
+        }
+
+        private async Task EnsureSchemaAsync()
+        {
+            try
+            {
+                using var db = new SchoolContext();
+                await DbSetup.RunAsync(db);        // ⬅️ crée/complète les colonnes manquantes
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Init schéma objets a échoué : " + ex.Message);
+            }
         }
 
         private void LoadDraftFromDb()
         {
             using var db = new SchoolContext();
-            var objets = db.Objets
-                           .AsNoTracking()
-                           .OrderBy(o => o.Nom)
-                           .ToList();
+
+            List<class_objet> objets = (CurrentUserId == 0)
+                ? new List<class_objet>()
+                : db.Objets
+                    .AsNoTracking()
+                    .Where(o => o.proprietaire_id == CurrentUserId)   // ⬅️ filtre propriétaire
+                    .OrderBy(o => o.Nom)
+                    .ToList();
 
             _draft = new BindingList<class_objet>(objets);
 
@@ -57,11 +76,15 @@ namespace Projet_C_
             var nom = textBox1.Text.Trim();
             var typeObjet = comboBox_type.SelectedItem?.ToString() ?? "";
             var etat = (Etat)(comboBox_etat.SelectedItem ?? Etat.Bon);
-            var dispo = comboBox_etat.SelectedItem;
 
             if (string.IsNullOrWhiteSpace(nom))
             {
                 MessageBox.Show("Le nom est obligatoire.");
+                return;
+            }
+            if (CurrentUserId == 0)
+            {
+                MessageBox.Show("Utilisateur non identifié — impossible d'ajouter l'objet.");
                 return;
             }
 
@@ -70,22 +93,34 @@ namespace Projet_C_
                 Nom = nom,
                 type_objet = typeObjet,
                 EtatObjet = etat,
-                disponible = true
+                disponible = true,
+                proprietaire_id = CurrentUserId     // ⬅️ attribuer le propriétaire dès l’ajout
             });
 
-            // reset
             textBox1.Clear();
-            //comboBox_etat.Select = false;
             textBox1.Focus();
         }
 
-        
-
+        // BOUTON SAUVEGARDER
         private void button_sauvegarder_Click(object sender, EventArgs e)
         {
+            if (CurrentUserId == 0)
+            {
+                MessageBox.Show("Utilisateur non identifié — sauvegarde impossible.");
+                return;
+            }
+
             using var db = new SchoolContext();
 
-            var dbObjets = db.Objets.AsNoTracking().ToList();
+            // On ne travaille que sur l’inventaire de CE user
+            var dbObjets = db.Objets
+                             .Where(o => o.proprietaire_id == CurrentUserId)
+                             .AsNoTracking()
+                             .ToList();
+
+            // S’assurer que tous les nouveaux ont bien le propriétaire défini
+            foreach (var d in _draft.Where(d => d.Id == 0))
+                d.proprietaire_id = CurrentUserId;
 
             // Nouveaux (Id == 0)
             var toAdd = _draft.Where(d => d.Id == 0).ToList();
@@ -96,20 +131,21 @@ namespace Projet_C_
             if (toDelete.Count > 0) db.Objets.RemoveRange(toDelete);
 
             // Modifiés (même Id, champs différents)
-            var toUpdate = _draft.Where(d =>
-                d.Id != 0 &&
-                dbObjets.Any(o => o.Id == d.Id &&
-                                 (o.Nom != d.Nom ||
-                                  o.type_objet != d.type_objet ||
-                                  o.EtatObjet != d.EtatObjet ||
-                                  o.disponible != d.disponible))
-            ).ToList();
+            var toUpdate = _draft
+                .Where(d => d.Id != 0
+                         && dbObjets.Any(o => o.Id == d.Id &&
+                               (o.Nom != d.Nom
+                             || o.type_objet != d.type_objet
+                             || o.EtatObjet != d.EtatObjet
+                             || o.disponible != d.disponible
+                             || (o.proprietaire_id ?? 0) != (d.proprietaire_id ?? 0))))
+                .ToList(); // ⬅️ ToList() APRÈS le Where
 
             if (toUpdate.Count > 0) db.UpdateRange(toUpdate);
 
             db.SaveChanges();
 
-            LoadDraftFromDb(); // recharge depuis la BDD (Id auto etc.)
+            LoadDraftFromDb(); // recharge depuis la BDD
             MessageBox.Show("Inventaire sauvegardé.");
         }
 

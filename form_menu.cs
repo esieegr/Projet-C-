@@ -13,14 +13,17 @@ namespace Projet_C_
 {
     public partial class form_menu : Form
     {
+        public class_utilisateur CurrentUser { get; }
+
         private form_echange? formEchange;
         private form_inventaire? formInventaire;
         private form_cr_offres? formCreerOffre;
 
-        public form_menu()
+        public form_menu(class_utilisateur currentUser)
         {
             InitializeComponent();
             InitialiserOnglets();
+            CurrentUser = currentUser;
         }
 
         private void InitialiserOnglets()
@@ -51,6 +54,6 @@ namespace Projet_C_
         }
 
 
-
+        public form_menu() : this(new class_utilisateur { Id = 0, Pseudo = "Invité" }) { }
     }
 }

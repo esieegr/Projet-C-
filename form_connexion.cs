@@ -39,18 +39,19 @@ namespace Projet_C_
 
         private void button_connexion_Click(object sender, EventArgs e)
         {
-            if (comboBox_utilisateurs.SelectedItem is class_utilisateur utilisateur)
+            // sel = utilisateur choisi dans ta liste/combobox
+            var sel = (class_utilisateur)comboBox_utilisateurs.SelectedItem; // adapte au nom de ton contrôle
+            if (sel != null)
             {
-                UserManager.ConnecterUtilisateur(utilisateur);
-                
-                var formMenu = new form_menu();
-                formMenu.Show();
+                var menu = new form_menu(sel);   // ⬅️ passe l’utilisateur
+                menu.Show();
                 this.Hide();
             }
             else
             {
-                MessageBox.Show("Veuillez sélectionner un utilisateur.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Veuillez sélectionner un utilisateur.");
             }
+
         }
 
         private void button_administration_Click(object sender, EventArgs e)

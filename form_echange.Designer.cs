@@ -81,13 +81,14 @@
             button_rechercher.TabIndex = 11;
             button_rechercher.Text = "Rechercher";
             button_rechercher.UseVisualStyleBackColor = true;
+            button_rechercher.Click += button_rechercher_Click;
             // 
             // listBox_offres
             // 
             listBox_offres.FormattingEnabled = true;
             listBox_offres.Location = new Point(66, 108);
             listBox_offres.Name = "listBox_offres";
-            listBox_offres.Size = new Size(270, 350);
+            listBox_offres.Size = new Size(270, 344);
             listBox_offres.TabIndex = 12;
             // 
             // label_nbr_offree
@@ -95,7 +96,7 @@
             label_nbr_offree.AutoSize = true;
             label_nbr_offree.Location = new Point(66, 85);
             label_nbr_offree.Name = "label_nbr_offree";
-            label_nbr_offree.Size = new Size(80, 20);
+            label_nbr_offree.Size = new Size(118, 20);
             label_nbr_offree.TabIndex = 15;
             label_nbr_offree.Text = "Nombre d'offres";
             // 

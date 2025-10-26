@@ -15,75 +15,74 @@ namespace Projet_C_
 
         private void InitializeComponent()
         {
-            this.comboBox_utilisateurs = new System.Windows.Forms.ComboBox();
-            this.button_connexion = new System.Windows.Forms.Button();
-            this.button_administration = new System.Windows.Forms.Button();
-            this.label_titre = new System.Windows.Forms.Label();
-            this.SuspendLayout();
-            
+            comboBox_utilisateurs = new ComboBox();
+            button_connexion = new Button();
+            button_administration = new Button();
+            label_titre = new Label();
+            SuspendLayout();
             // 
             // comboBox_utilisateurs
             // 
-            this.comboBox_utilisateurs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_utilisateurs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox_utilisateurs.FormattingEnabled = true;
-            this.comboBox_utilisateurs.Location = new System.Drawing.Point(300, 200);
-            this.comboBox_utilisateurs.Name = "comboBox_utilisateurs";
-            this.comboBox_utilisateurs.Size = new System.Drawing.Size(200, 28);
-            this.comboBox_utilisateurs.TabIndex = 0;
-            
+            comboBox_utilisateurs.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox_utilisateurs.Font = new Font("Microsoft Sans Serif", 12F);
+            comboBox_utilisateurs.FormattingEnabled = true;
+            comboBox_utilisateurs.Location = new Point(343, 267);
+            comboBox_utilisateurs.Margin = new Padding(3, 4, 3, 4);
+            comboBox_utilisateurs.Name = "comboBox_utilisateurs";
+            comboBox_utilisateurs.Size = new Size(228, 33);
+            comboBox_utilisateurs.TabIndex = 0;
             // 
             // button_connexion
             // 
-            this.button_connexion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button_connexion.Location = new System.Drawing.Point(520, 200);
-            this.button_connexion.Name = "button_connexion";
-            this.button_connexion.Size = new System.Drawing.Size(100, 30);
-            this.button_connexion.TabIndex = 1;
-            this.button_connexion.Text = "Connexion";
-            this.button_connexion.UseVisualStyleBackColor = true;
-            this.button_connexion.Click += new System.EventHandler(this.button_connexion_Click);
-            
+            button_connexion.Font = new Font("Microsoft Sans Serif", 12F);
+            button_connexion.Location = new Point(594, 267);
+            button_connexion.Margin = new Padding(3, 4, 3, 4);
+            button_connexion.Name = "button_connexion";
+            button_connexion.Size = new Size(133, 40);
+            button_connexion.TabIndex = 1;
+            button_connexion.Text = "Connexion";
+            button_connexion.UseVisualStyleBackColor = true;
+            button_connexion.Click += button_connexion_Click;
             // 
             // button_administration
             // 
-            this.button_administration.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button_administration.Location = new System.Drawing.Point(700, 20);
-            this.button_administration.Name = "button_administration";
-            this.button_administration.Size = new System.Drawing.Size(100, 30);
-            this.button_administration.TabIndex = 2;
-            this.button_administration.Text = "Administration";
-            this.button_administration.UseVisualStyleBackColor = true;
-            this.button_administration.Click += new System.EventHandler(this.button_administration_Click);
-            
+            button_administration.Font = new Font("Microsoft Sans Serif", 10F);
+            button_administration.Location = new Point(766, 27);
+            button_administration.Margin = new Padding(3, 4, 3, 4);
+            button_administration.Name = "button_administration";
+            button_administration.Size = new Size(136, 40);
+            button_administration.TabIndex = 2;
+            button_administration.Text = "Administration";
+            button_administration.UseVisualStyleBackColor = true;
+            button_administration.Click += button_administration_Click;
             // 
             // label_titre
             // 
-            this.label_titre.AutoSize = true;
-            this.label_titre.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label_titre.Location = new System.Drawing.Point(350, 120);
-            this.label_titre.Name = "label_titre";
-            this.label_titre.Size = new System.Drawing.Size(100, 26);
-            this.label_titre.TabIndex = 3;
-            this.label_titre.Text = "Connexion";
-            
+            label_titre.AutoSize = true;
+            label_titre.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Bold);
+            label_titre.Location = new Point(400, 160);
+            label_titre.Name = "label_titre";
+            label_titre.Size = new Size(152, 31);
+            label_titre.TabIndex = 3;
+            label_titre.Text = "Connexion";
             // 
             // form_connexion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label_titre);
-            this.Controls.Add(this.button_administration);
-            this.Controls.Add(this.button_connexion);
-            this.Controls.Add(this.comboBox_utilisateurs);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.Name = "form_connexion";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Connexion";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(914, 600);
+            Controls.Add(label_titre);
+            Controls.Add(button_administration);
+            Controls.Add(button_connexion);
+            Controls.Add(comboBox_utilisateurs);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Margin = new Padding(3, 4, 3, 4);
+            MaximizeBox = false;
+            Name = "form_connexion";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Connexion";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         private System.Windows.Forms.ComboBox comboBox_utilisateurs;

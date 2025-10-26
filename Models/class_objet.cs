@@ -12,6 +12,9 @@ namespace Projet_C_.Models
         public string type_objet { get; set; } = "";
         static int static_id_objet = 0;
         public Etat EtatObjet { get; set; } = new Etat();
+
+        public string? Description { get; set; }
+        public int? proprietaire_id { get; set; }
         public int Id { get; set; }
 
         public enum Etat

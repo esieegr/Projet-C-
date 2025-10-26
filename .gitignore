@@ -1,0 +1,21 @@
+﻿# VS/Build
+.vs/
+bin/
+obj/
+TestResults/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# NuGet
+packages/
+**/packages/*
+
+# OS
+Thumbs.db
+.DS_Store
+
+# SQLite / données locales
+*.db
+app.db

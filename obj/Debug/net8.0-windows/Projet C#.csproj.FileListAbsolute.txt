@@ -296,3 +296,4 @@ D:\Travail\Projet-C-\obj\Debug\net8.0-windows\refint\Projet C#.dll
 D:\Travail\Projet-C-\obj\Debug\net8.0-windows\Projet C#.pdb
 D:\Travail\Projet-C-\obj\Debug\net8.0-windows\Projet C#.genruntimeconfig.cache
 D:\Travail\Projet-C-\obj\Debug\net8.0-windows\ref\Projet C#.dll
+C:\Users\Gianni\source\repos\Projet C#\obj\Debug\net8.0-windows\Projet_C_.form_connexion.resources

@@ -17,9 +17,12 @@ namespace Projet_C_.Models
         {
             accepte, refuse, en_attente
         }
-    
 
-    void accepter()
+        public string statut { get; set; } = "en_attente";
+
+
+
+        void accepter()
     {
 
     }
