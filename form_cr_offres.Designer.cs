@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listBox_inventaire = new ListBox();
+            listBox_marche = new ListBox();
             label1 = new Label();
-            button1 = new Button();
-            textBox1 = new TextBox();
-            button2 = new Button();
+            button_faire_offre = new Button();
+            textBox_recherche = new TextBox();
+            button_recherche = new Button();
             SuspendLayout();
             // 
-            // listBox_inventaire
+            // listBox_marche
             // 
-            listBox_inventaire.FormattingEnabled = true;
-            listBox_inventaire.Location = new Point(38, 63);
-            listBox_inventaire.Name = "listBox_inventaire";
-            listBox_inventaire.Size = new Size(260, 304);
-            listBox_inventaire.TabIndex = 1;
+            listBox_marche.FormattingEnabled = true;
+            listBox_marche.Location = new Point(38, 63);
+            listBox_marche.Name = "listBox_marche";
+            listBox_marche.Size = new Size(260, 304);
+            listBox_marche.TabIndex = 1;
             // 
             // label1
             // 
@@ -52,42 +52,42 @@
             label1.TabIndex = 2;
             label1.Text = "Caractéristiques";
             // 
-            // button1
+            // button_faire_offre
             // 
-            button1.Location = new Point(318, 338);
-            button1.Name = "button1";
-            button1.Size = new Size(121, 29);
-            button1.TabIndex = 3;
-            button1.Text = "Faire une offre";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            button_faire_offre.Location = new Point(318, 338);
+            button_faire_offre.Name = "button_faire_offre";
+            button_faire_offre.Size = new Size(121, 29);
+            button_faire_offre.TabIndex = 3;
+            button_faire_offre.Text = "Faire une offre";
+            button_faire_offre.UseVisualStyleBackColor = true;
+            button_faire_offre.Click += button_faire_offre_Click;
             // 
-            // textBox1
+            // textBox_recherche
             // 
-            textBox1.Location = new Point(38, 12);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(260, 27);
-            textBox1.TabIndex = 4;
+            textBox_recherche.Location = new Point(38, 12);
+            textBox_recherche.Name = "textBox_recherche";
+            textBox_recherche.Size = new Size(260, 27);
+            textBox_recherche.TabIndex = 4;
             // 
-            // button2
+            // button_recherche
             // 
-            button2.Location = new Point(318, 12);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 29);
-            button2.TabIndex = 5;
-            button2.Text = "Recherche";
-            button2.UseVisualStyleBackColor = true;
+            button_recherche.Location = new Point(318, 12);
+            button_recherche.Name = "button_recherche";
+            button_recherche.Size = new Size(94, 29);
+            button_recherche.TabIndex = 5;
+            button_recherche.Text = "Recherche";
+            button_recherche.UseVisualStyleBackColor = true;
             // 
             // cr_offres
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(621, 408);
-            Controls.Add(button2);
-            Controls.Add(textBox1);
-            Controls.Add(button1);
+            Controls.Add(button_recherche);
+            Controls.Add(textBox_recherche);
+            Controls.Add(button_faire_offre);
             Controls.Add(label1);
-            Controls.Add(listBox_inventaire);
+            Controls.Add(listBox_marche);
             Name = "cr_offres";
             Text = "Créer une offre";
             ResumeLayout(false);
@@ -95,10 +95,10 @@
         }
 
         #endregion
-        private ListBox listBox_inventaire;
+        private ListBox listBox_marche;
         private Label label1;
-        private Button button1;
-        private TextBox textBox1;
-        private Button button2;
+        private Button button_recherche;
+        private TextBox textBox_recherche;
+        private Button button_faire_offre;
     }
 }

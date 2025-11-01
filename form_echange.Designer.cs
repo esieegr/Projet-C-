@@ -36,7 +36,7 @@
             listBox_offres = new ListBox();
             label_nbr_offree = new Label();
             label1 = new Label();
-            button1 = new Button();
+            button_faire_offre = new Button();
             SuspendLayout();
             // 
             // Rechercher
@@ -109,14 +109,14 @@
             label1.TabIndex = 17;
             label1.Text = "Caractéristiques";
             // 
-            // button1
+            // button_faire_offre
             // 
-            button1.Location = new Point(265, 480);
-            button1.Name = "button1";
-            button1.Size = new Size(120, 29);
-            button1.TabIndex = 14;
-            button1.Text = "Contre offre";
-            button1.UseVisualStyleBackColor = true;
+            button_faire_offre.Location = new Point(265, 480);
+            button_faire_offre.Name = "button_faire_offre";
+            button_faire_offre.Size = new Size(120, 29);
+            button_faire_offre.TabIndex = 14;
+            button_faire_offre.Text = "Contre offre";
+            button_faire_offre.UseVisualStyleBackColor = true;
             // 
             // form_echange
             // 
@@ -125,7 +125,7 @@
             ClientSize = new Size(635, 671);
             Controls.Add(label1);
             Controls.Add(label_nbr_offree);
-            Controls.Add(button1);
+            Controls.Add(button_faire_offre);
             Controls.Add(listBox_offres);
             Controls.Add(button_rechercher);
             Controls.Add(listbox_type);
@@ -148,6 +148,6 @@
         private ListBox listBox_offres;
         private Label label_nbr_offree;
         private Label label1;
-        private Button button1;
+        private Button button_faire_offre;
     }
 }

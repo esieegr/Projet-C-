@@ -57,7 +57,7 @@ namespace Projet_C_
         }
 
         // BOUTON AJOUT D'UTILISATEUR
-        private void button1_Click(object sender, EventArgs e)
+        private void button_faire_offre_Click(object sender, EventArgs e)
         {
             var u = new class_utilisateur
             {
@@ -83,7 +83,7 @@ namespace Projet_C_
         }
 
         // BOUTON SUPPRIMER UTILISATEUR
-        private void button2_Click(object sender, EventArgs e)
+        private void button_recherche_Click(object sender, EventArgs e)
         {
             if (listBox_utilisateurs.SelectedItem is not class_utilisateur sel)
             {

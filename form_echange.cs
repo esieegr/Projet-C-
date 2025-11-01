@@ -189,8 +189,8 @@ VALUES ({0}, 'statut', {1});", echangeId, note);
         // Handlers auto-générés (laisse-les si le Designer y fait référence)
         private void Form1_Load(object sender, EventArgs e) { }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e) { }
-        private void button2_Click(object sender, EventArgs e) { }
-        private void button1_Click(object sender, EventArgs e) { }
+        private void button_recherche_Click(object sender, EventArgs e) { }
+        private void button_faire_offre_Click(object sender, EventArgs e) { }
         private void type_SelectedIndexChanged(object sender, EventArgs e) { }
         private void button_rechercher_Click(object sender, EventArgs e) { }
     }

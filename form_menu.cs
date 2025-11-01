@@ -22,13 +22,26 @@ namespace Projet_C_
         public form_menu(class_utilisateur currentUser)
         {
             InitializeComponent();
-            InitialiserOnglets();
             CurrentUser = currentUser;
+
+            InitialiserOnglets();
+
+            // Événement de changement d'onglet
+            tabControl_menu.SelectedIndexChanged += TabControl_SelectedIndexChanged;
+        }
+
+        private async void TabControl_SelectedIndexChanged(object? sender, EventArgs e)
+        {
+            // Index 2 = "Créer une offre"
+            if (tabControl_menu.SelectedIndex == 2 && formCreerOffre != null)
+            {
+                await formCreerOffre.RefreshMarketAsync();
+            }
         }
 
         private void InitialiserOnglets()
         {
-            // Initialiser le form d'échange
+            // Echange
             formEchange = new form_echange(this);
             formEchange.TopLevel = false;
             formEchange.FormBorderStyle = FormBorderStyle.None;
@@ -36,7 +49,7 @@ namespace Projet_C_
             tabPage_echange.Controls.Add(formEchange);
             formEchange.Show();
 
-            // Initialiser le form d'inventaire
+            // Inventaire
             formInventaire = new form_inventaire(this);
             formInventaire.TopLevel = false;
             formInventaire.FormBorderStyle = FormBorderStyle.None;
@@ -44,7 +57,7 @@ namespace Projet_C_
             tabPage_inventaire.Controls.Add(formInventaire);
             formInventaire.Show();
 
-            // Initialiser le form de création d'offre
+            // Créer offre
             formCreerOffre = new form_cr_offres(this);
             formCreerOffre.TopLevel = false;
             formCreerOffre.FormBorderStyle = FormBorderStyle.None;
@@ -52,7 +65,6 @@ namespace Projet_C_
             tabPage_creer_offre.Controls.Add(formCreerOffre);
             formCreerOffre.Show();
         }
-
 
         public form_menu() : this(new class_utilisateur { Id = 0, Pseudo = "Invité" }) { }
     }

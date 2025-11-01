@@ -31,7 +31,7 @@
             label2 = new Label();
             textBox_nom = new TextBox();
             button3 = new Button();
-            button2 = new Button();
+            button_recherche = new Button();
             button_ajouter_utilisateur = new Button();
             listBox_utilisateurs = new ListBox();
             textBox_pseudo = new TextBox();
@@ -66,15 +66,15 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
-            // button2
+            // button_recherche
             // 
-            button2.Location = new Point(140, 438);
-            button2.Name = "button2";
-            button2.Size = new Size(179, 29);
-            button2.TabIndex = 10;
-            button2.Text = "Supprimer l'utilisateur";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            button_recherche.Location = new Point(140, 438);
+            button_recherche.Name = "button_recherche";
+            button_recherche.Size = new Size(179, 29);
+            button_recherche.TabIndex = 10;
+            button_recherche.Text = "Supprimer l'utilisateur";
+            button_recherche.UseVisualStyleBackColor = true;
+            button_recherche.Click += button_recherche_Click;
             // 
             // button_ajouter_utilisateur
             // 
@@ -84,7 +84,7 @@
             button_ajouter_utilisateur.TabIndex = 9;
             button_ajouter_utilisateur.Text = "Ajouter l'utilisateur";
             button_ajouter_utilisateur.UseVisualStyleBackColor = true;
-            button_ajouter_utilisateur.Click += button1_Click;
+            button_ajouter_utilisateur.Click += button_faire_offre_Click;
             // 
             // listBox_utilisateurs
             // 
@@ -138,7 +138,7 @@
             Controls.Add(label2);
             Controls.Add(textBox_nom);
             Controls.Add(button3);
-            Controls.Add(button2);
+            Controls.Add(button_recherche);
             Controls.Add(button_ajouter_utilisateur);
             Controls.Add(listBox_utilisateurs);
             Name = "form_administration";
@@ -152,7 +152,7 @@
         private Label label2;
         private TextBox textBox_nom;
         private Button button3;
-        private Button button2;
+        private Button button_recherche;
         private Button button_ajouter_utilisateur;
         private ListBox listBox_utilisateurs;
         private TextBox textBox_pseudo;

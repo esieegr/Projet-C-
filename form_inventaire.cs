@@ -64,16 +64,16 @@ namespace Projet_C_
 
             _draft = new BindingList<class_objet>(objets);
 
-            listBox_inventaire.DataSource = null;
-            listBox_inventaire.DisplayMember = "Nom";
-            listBox_inventaire.ValueMember = "Id";
-            listBox_inventaire.DataSource = _draft;
+            listBox_marche.DataSource = null;
+            listBox_marche.DisplayMember = "Nom";
+            listBox_marche.ValueMember = "Id";
+            listBox_marche.DataSource = _draft;
         }
 
         // BOUTON AJOUTER (mémoire uniquement)
         private void button_add_Click(object sender, EventArgs e)
         {
-            var nom = textBox1.Text.Trim();
+            var nom = textBox_recherche.Text.Trim();
             var typeObjet = comboBox_type.SelectedItem?.ToString() ?? "";
             var etat = (Etat)(comboBox_etat.SelectedItem ?? Etat.Bon);
 
@@ -97,8 +97,8 @@ namespace Projet_C_
                 proprietaire_id = CurrentUserId     // ⬅️ attribuer le propriétaire dès l’ajout
             });
 
-            textBox1.Clear();
-            textBox1.Focus();
+            textBox_recherche.Clear();
+            textBox_recherche.Focus();
         }
 
         // BOUTON SAUVEGARDER
@@ -152,7 +152,7 @@ namespace Projet_C_
         // BOUTON SUPPRIMER (mémoire uniquement)
         private void button_supprimer_objet_Click(object sender, EventArgs e)
         {
-            if (listBox_inventaire.SelectedItem is not class_objet sel)
+            if (listBox_marche.SelectedItem is not class_objet sel)
             {
                 MessageBox.Show("Sélectionnez un objet.");
                 return;

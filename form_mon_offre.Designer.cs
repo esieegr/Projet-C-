@@ -30,11 +30,11 @@
         {
             listBox_mes_objets = new ListBox();
             label1 = new Label();
-            button2 = new Button();
-            textBox1 = new TextBox();
+            button_recherche = new Button();
+            textBox_recherche = new TextBox();
             button_rechercher = new Button();
             label2 = new Label();
-            button1 = new Button();
+            button_faire_offre = new Button();
             SuspendLayout();
             // 
             // listBox_mes_objets
@@ -54,21 +54,21 @@
             label1.TabIndex = 1;
             label1.Text = "Offre sélectionée";
             // 
-            // button2
+            // button_recherche
             // 
-            button2.Location = new Point(330, 315);
-            button2.Name = "button2";
-            button2.Size = new Size(124, 29);
-            button2.TabIndex = 5;
-            button2.Text = "Valider l'offre";
-            button2.UseVisualStyleBackColor = true;
+            button_recherche.Location = new Point(330, 315);
+            button_recherche.Name = "button_recherche";
+            button_recherche.Size = new Size(124, 29);
+            button_recherche.TabIndex = 5;
+            button_recherche.Text = "Valider l'offre";
+            button_recherche.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // textBox_recherche
             // 
-            textBox1.Location = new Point(57, 18);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(178, 27);
-            textBox1.TabIndex = 6;
+            textBox_recherche.Location = new Point(57, 18);
+            textBox_recherche.Name = "textBox_recherche";
+            textBox_recherche.Size = new Size(178, 27);
+            textBox_recherche.TabIndex = 6;
             // 
             // button_rechercher
             // 
@@ -88,25 +88,25 @@
             label2.TabIndex = 8;
             label2.Text = "Caractéristiques";
             // 
-            // button1
+            // button_faire_offre
             // 
-            button1.Location = new Point(485, 315);
-            button1.Name = "button1";
-            button1.Size = new Size(124, 29);
-            button1.TabIndex = 9;
-            button1.Text = "Annuler";
-            button1.UseVisualStyleBackColor = true;
+            button_faire_offre.Location = new Point(485, 315);
+            button_faire_offre.Name = "button_faire_offre";
+            button_faire_offre.Size = new Size(124, 29);
+            button_faire_offre.TabIndex = 9;
+            button_faire_offre.Text = "Annuler";
+            button_faire_offre.UseVisualStyleBackColor = true;
             // 
             // mon_offre
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(794, 387);
-            Controls.Add(button1);
+            Controls.Add(button_faire_offre);
             Controls.Add(label2);
             Controls.Add(button_rechercher);
-            Controls.Add(textBox1);
-            Controls.Add(button2);
+            Controls.Add(textBox_recherche);
+            Controls.Add(button_recherche);
             Controls.Add(label1);
             Controls.Add(listBox_mes_objets);
             Name = "mon_offre";
@@ -119,10 +119,10 @@
 
         private ListBox listBox_mes_objets;
         private Label label1;
-        private Button button2;
-        private TextBox textBox1;
+        private Button button_recherche;
+        private TextBox textBox_recherche;
         private Button button_rechercher;
         private Label label2;
-        private Button button1;
+        private Button button_faire_offre;
     }
 }

@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listBox_inventaire = new ListBox();
+            listBox_marche = new ListBox();
             button_ajouter_objet = new Button();
             button_supprimer_objet = new Button();
             button_sauvegarder = new Button();
-            textBox1 = new TextBox();
+            textBox_recherche = new TextBox();
             textBox2 = new TextBox();
             label_description = new Label();
             label_nom = new Label();
@@ -43,13 +43,13 @@
             label_etat = new Label();
             SuspendLayout();
             // 
-            // listBox_inventaire
+            // listBox_marche
             // 
-            listBox_inventaire.FormattingEnabled = true;
-            listBox_inventaire.Location = new Point(64, 171);
-            listBox_inventaire.Name = "listBox_inventaire";
-            listBox_inventaire.Size = new Size(319, 284);
-            listBox_inventaire.TabIndex = 0;
+            listBox_marche.FormattingEnabled = true;
+            listBox_marche.Location = new Point(64, 171);
+            listBox_marche.Name = "listBox_marche";
+            listBox_marche.Size = new Size(319, 284);
+            listBox_marche.TabIndex = 0;
             // 
             // button_ajouter_objet
             // 
@@ -81,12 +81,12 @@
             button_sauvegarder.UseVisualStyleBackColor = true;
             button_sauvegarder.Click += button_sauvegarder_Click;
             // 
-            // textBox1
+            // textBox_recherche
             // 
-            textBox1.Location = new Point(64, 41);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(238, 27);
-            textBox1.TabIndex = 4;
+            textBox_recherche.Location = new Point(64, 41);
+            textBox_recherche.Name = "textBox_recherche";
+            textBox_recherche.Size = new Size(238, 27);
+            textBox_recherche.TabIndex = 4;
             // 
             // textBox2
             // 
@@ -169,11 +169,11 @@
             Controls.Add(label_nom);
             Controls.Add(label_description);
             Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(textBox_recherche);
             Controls.Add(button_sauvegarder);
             Controls.Add(button_supprimer_objet);
             Controls.Add(button_ajouter_objet);
-            Controls.Add(listBox_inventaire);
+            Controls.Add(listBox_marche);
             Name = "form_inventaire";
             Text = "Inventaire";
             ResumeLayout(false);
@@ -182,11 +182,11 @@
 
         #endregion
 
-        private ListBox listBox_inventaire;
+        private ListBox listBox_marche;
         private Button button_ajouter_objet;
         private Button button_supprimer_objet;
         private Button button_sauvegarder;
-        private TextBox textBox1;
+        private TextBox textBox_recherche;
         private TextBox textBox2;
         private Label label_description;
         private Label label_nom;

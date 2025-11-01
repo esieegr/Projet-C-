@@ -49,6 +49,9 @@ CREATE TABLE IF NOT EXISTS Echanges(
             await db.Database.ExecuteSqlRawAsync(
                 "CREATE INDEX IF NOT EXISTS ix_objets_owner ON Objets(proprietaire_id);");
 
+            // --- Backfill: si disponible est NULL -> 1 (sinon le marché est vide) ---
+            await db.Database.ExecuteSqlRawAsync("UPDATE Objets SET disponible = 1 WHERE disponible IS NULL;");
+
             // === Historique des échanges ===
             await db.Database.ExecuteSqlRawAsync(@"
 CREATE TABLE IF NOT EXISTS EchangeEvents(
@@ -121,9 +124,9 @@ END;");
             int idPc = await ScalarIntAsync(conn, "SELECT Id FROM Objets WHERE Nom='PC Portable' LIMIT 1;");
             int idBook = await ScalarIntAsync(conn, "SELECT Id FROM Objets WHERE Nom='Livre C#'   LIMIT 1;");
 
-            // propriétaire pour l’exemple
-            await ExecAsync(conn, $"UPDATE Objets SET proprietaire_id = {idAlice} WHERE Nom='PC Portable';");
-            await ExecAsync(conn, $"UPDATE Objets SET proprietaire_id = {idBob}   WHERE Nom='Livre C#';");
+            // propriétaires de démo
+            await ExecAsync(conn, $"UPDATE Objets SET proprietaire_id = {idAlice}, disponible = 1 WHERE Nom='PC Portable';");
+            await ExecAsync(conn, $"UPDATE Objets SET proprietaire_id = {idBob},   disponible = 1 WHERE Nom='Livre C#';");
 
             await ExecAsync(conn, $@"
 INSERT INTO Echanges(utilisateur_proposant, utilisateur_receveur, objet_propose, objet_demande, statut)
