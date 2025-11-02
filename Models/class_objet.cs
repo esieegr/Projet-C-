@@ -21,7 +21,7 @@ namespace Projet_C_.Models
         {
             Bon, Neuf, Usage
         }
-        public bool disponible;
+        public bool disponible { get; set; }
 
         public class_objet() { }
 

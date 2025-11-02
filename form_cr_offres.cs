@@ -47,7 +47,10 @@ namespace Projet_C_
 
             // Attachement des événements
             button_recherche.Click += button_recherche_Click;
-            button_faire_offre.Click += button_faire_offre_Click;
+            button_faire_offre.Click += button_faire_offre_Click;  // ← RAJOUTEZ CETTE LIGNE
+
+            // Chargement initial des données
+            this.Load += async (s, e) => await LoadMarketAsync();
         }
 
         private int CurrentUserId => _menu?.CurrentUser?.Id ?? 0;
@@ -55,12 +58,12 @@ namespace Projet_C_
         /// <summary>
         /// Actualise le marché en chargeant les objets disponibles des autres utilisateurs.
         /// </summary>
-        public async System.Threading.Tasks.Task RefreshMarketAsync()
-        {
+        public async Task RefreshMarketAsync()
+        {   
             await LoadMarketAsync();
         }
 
-        private async System.Threading.Tasks.Task LoadMarketAsync()
+        private async Task LoadMarketAsync()
         {
             if (_busy)
                 return;
@@ -135,7 +138,7 @@ WHERE IFNULL(o.disponible,1)=1
             return baseQuery;
         }
 
-        private async System.Threading.Tasks.Task<List<MarketVM>> ExecuteQueryAsync(DbCommand cmd)
+        private async Task<List<MarketVM>> ExecuteQueryAsync(DbCommand cmd)
         {
             var rows = new List<MarketVM>();
 
@@ -172,6 +175,12 @@ WHERE IFNULL(o.disponible,1)=1
             listBox_marche.DataSource = _market;
             listBox_marche.DisplayMember = "Label";
             listBox_marche.ValueMember = "IdObjet";
+
+            // Sélectionner automatiquement le premier élément s'il existe
+            if (_market.Count > 0)
+            {
+                listBox_marche.SelectedIndex = 0;
+            }
         }
 
         private async void button_recherche_Click(object sender, EventArgs e)
@@ -181,16 +190,34 @@ WHERE IFNULL(o.disponible,1)=1
 
         private void button_faire_offre_Click(object sender, EventArgs e)
         {
-            if (listBox_marche.SelectedItem is MarketVM vm)
+            // Vérifier d'abord si la liste contient des éléments
+            if (_market.Count == 0)
             {
-                MessageBox.Show($"Vous avez sélectionné : {vm.Label}", 
-                    "Offre", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                // TODO: Implémenter la création d'offre
+                MessageBox.Show("Aucun objet disponible sur le marché.", 
+                    "Marché vide", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
-            else
+
+            if (listBox_marche.SelectedItem is not MarketVM vm)
             {
                 MessageBox.Show("Veuillez sélectionner un objet dans la liste.", 
                     "Sélection requise", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Ouvrir form_mon_offre
+            var formMonOffre = new form_mon_offre(
+                _menu, 
+                vm.IdObjet, 
+                vm.Nom, 
+                vm.ProprietaireId, 
+                vm.Proprietaire
+            );
+
+            if (formMonOffre.ShowDialog() == DialogResult.OK)
+            {
+                // Rafraîchir le marché après la création de l'échange
+                _ = RefreshMarketAsync();
             }
         }
     }

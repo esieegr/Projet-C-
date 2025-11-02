@@ -50,9 +50,10 @@ namespace Projet_C_
             // Détail (historique au double-clic)
             listBox_offres.DoubleClick += (_, __) => OuvrirDetail();
 
-            // Actions (si les boutons existent dans le Designer)
-            try { button_accepter.Click += async (_, __) => await AccepterAsync(); } catch { }
-            try { button_refuser.Click += async (_, __) => await RefuserAsync(); } catch { }
+            // Actions
+            button_accepter.Click += async (_, __) => await AccepterAsync();
+            button_refuser.Click += async (_, __) => await RefuserAsync();
+            button_faire_offre.Click += button_faire_offre_Click;
 
             // Init explicite (pas besoin d'event Load)
             _ = InitAsync();
@@ -74,11 +75,24 @@ namespace Projet_C_
             }
         }
 
+        // ====== Méthode publique pour rafraîchir depuis l'extérieur ======
+        public async Task RefreshFromExternalAsync()
+        {
+            await RefreshListAsync();
+        }
+
         // ====== Recherche & remplissage de la liste ======
         private async Task RefreshListAsync()
         {
             string? q = string.IsNullOrWhiteSpace(Rechercher.Text) ? null : Rechercher.Text.Trim();
             string filtre = listbox_type.SelectedItem?.ToString() ?? "Utilisateur";
+
+            int currentUserId = m?.CurrentUser?.Id ?? 0;
+            if (currentUserId == 0)
+            {
+                _items.Clear();
+                return;
+            }
 
             // Jointures sur tes tables existantes
             var query =
@@ -87,6 +101,8 @@ namespace Projet_C_
                 join ur in _db.Utilisateurs on e.utilisateur_receveur equals ur.Id
                 join op in _db.Objets on e.objet_propose equals op.Id
                 join od in _db.Objets on e.objet_demande equals od.Id
+                where e.statut != "refuse"  // ✅ EXCLUSION DES OFFRES REFUSÉES
+                   && (e.utilisateur_proposant == currentUserId || e.utilisateur_receveur == currentUserId) // ✅ FILTRE PAR UTILISATEUR
                 select new EchangeVM
                 {
                     Id = e.Id,
@@ -123,6 +139,13 @@ namespace Projet_C_
             foreach (var it in data) _items.Add(it);
             _items.RaiseListChangedEvents = true;
             _bs.ResetBindings(false);
+
+            // Mettre à jour le compteur d'offres si le label existe
+            try
+            {
+                label_nbr_offree.Text = $"Offres actives : {_items.Count}";
+            }
+            catch { }
         }
 
         // ====== Actions : accepter / refuser + log historique ======
@@ -130,16 +153,52 @@ namespace Projet_C_
 
         private async Task AccepterAsync()
         {
-            var vm = Current(); if (vm is null) { MessageBox.Show("Sélectionne un échange."); return; }
-            await UpdateStatutAndLogAsync(vm.Id, "accepte", "Statut: accepté");
-            await RefreshListAsync();
+            var vm = Current();
+            if (vm is null)
+            {
+                MessageBox.Show("Veuillez sélectionner un échange.", "Sélection requise",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var result = MessageBox.Show(
+                $"Accepter l'échange :\n• Proposant : {vm.Proposant}\n• Offre : {vm.Offre}\n• Demande : {vm.Demande}",
+                "Confirmer l'acceptation",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                await UpdateStatutAndLogAsync(vm.Id, "accepte", "Statut: accepté");
+                MessageBox.Show("Échange accepté avec succès !", "Succès",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                await RefreshListAsync();
+            }
         }
 
         private async Task RefuserAsync()
         {
-            var vm = Current(); if (vm is null) { MessageBox.Show("Sélectionne un échange."); return; }
-            await UpdateStatutAndLogAsync(vm.Id, "refuse", "Statut: refusé");
-            await RefreshListAsync();
+            var vm = Current();
+            if (vm is null)
+            {
+                MessageBox.Show("Veuillez sélectionner un échange.", "Sélection requise",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var result = MessageBox.Show(
+                $"Refuser l'échange :\n• Proposant : {vm.Proposant}\n• Offre : {vm.Offre}\n• Demande : {vm.Demande}\n\nCette action masquera l'offre de la liste.",
+                "Confirmer le refus",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                await UpdateStatutAndLogAsync(vm.Id, "refuse", "Statut: refusé");
+                MessageBox.Show("Échange refusé. L'offre a été retirée de la liste.", "Refus enregistré",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                await RefreshListAsync();
+            }
         }
 
         private async Task UpdateStatutAndLogAsync(int echangeId, string statut, string note)
@@ -152,7 +211,53 @@ INSERT INTO EchangeEvents(EchangeId, Type, Contenu)
 VALUES ({0}, 'statut', {1});", echangeId, note);
         }
 
-        // ====== Détail : affiche l’historique (MessageBox) ======
+        // ====== Contre-offre : permet de faire une contre-proposition ======
+        private void button_faire_offre_Click(object sender, EventArgs e)
+        {
+            var vm = Current();
+            if (vm is null)
+            {
+                MessageBox.Show("Veuillez sélectionner un échange pour faire une contre-offre.",
+                    "Sélection requise", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Récupérer les détails de l'échange pour faire une contre-offre
+            using (var db = new SchoolContext())
+            {
+                var echange = db.Echanges.FirstOrDefault(e => e.Id == vm.Id);
+                if (echange == null)
+                {
+                    MessageBox.Show("Échange introuvable.", "Erreur",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                var objetDemande = db.Objets.FirstOrDefault(o => o.Id == echange.objet_demande);
+                if (objetDemande == null)
+                {
+                    MessageBox.Show("Objet demandé introuvable.", "Erreur",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Ouvrir form_mon_offre pour faire une contre-offre
+                var formMonOffre = new form_mon_offre(
+                    m,
+                    echange.objet_propose,
+                    vm.Offre,
+                    echange.utilisateur_proposant,
+                    vm.Proposant
+                );
+
+                if (formMonOffre.ShowDialog() == DialogResult.OK)
+                {
+                    _ = RefreshListAsync();
+                }
+            }
+        }
+
+        // ====== Détail : affiche l'historique (MessageBox) ======
         private async void OuvrirDetail()
         {
             var vm = Current(); if (vm is null) return;
@@ -190,7 +295,6 @@ VALUES ({0}, 'statut', {1});", echangeId, note);
         private void Form1_Load(object sender, EventArgs e) { }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e) { }
         private void button_recherche_Click(object sender, EventArgs e) { }
-        private void button_faire_offre_Click(object sender, EventArgs e) { }
         private void type_SelectedIndexChanged(object sender, EventArgs e) { }
         private void button_rechercher_Click(object sender, EventArgs e) { }
     }

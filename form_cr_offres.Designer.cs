@@ -60,7 +60,6 @@
             button_faire_offre.TabIndex = 3;
             button_faire_offre.Text = "Faire une offre";
             button_faire_offre.UseVisualStyleBackColor = true;
-            button_faire_offre.Click += button_faire_offre_Click;
             // 
             // textBox_recherche
             // 
@@ -78,7 +77,7 @@
             button_recherche.Text = "Recherche";
             button_recherche.UseVisualStyleBackColor = true;
             // 
-            // cr_offres
+            // form_cr_offres
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -88,7 +87,7 @@
             Controls.Add(button_faire_offre);
             Controls.Add(label1);
             Controls.Add(listBox_marche);
-            Name = "cr_offres";
+            Name = "form_cr_offres";
             Text = "Créer une offre";
             ResumeLayout(false);
             PerformLayout();

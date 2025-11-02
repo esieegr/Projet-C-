@@ -1,19 +1,12 @@
 ﻿using Projet_C_.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Projet_C_
 {
     public partial class form_menu : Form
     {
-        public class_utilisateur CurrentUser { get; }
+        public class_utilisateur CurrentUser { get; private set; }
 
         private form_echange? formEchange;
         private form_inventaire? formInventaire;
@@ -22,50 +15,102 @@ namespace Projet_C_
         public form_menu(class_utilisateur currentUser)
         {
             InitializeComponent();
-            CurrentUser = currentUser;
-
-            InitialiserOnglets();
-
-            // Événement de changement d'onglet
+            CurrentUser = currentUser ?? throw new ArgumentNullException(nameof(currentUser));
+            
+            this.Text = $"Menu - {CurrentUser.Pseudo}";
+            
+            // Attacher l'événement AVANT d'initialiser les onglets
             tabControl_menu.SelectedIndexChanged += TabControl_SelectedIndexChanged;
+            
+            // Gérer la fermeture du formulaire
+            this.FormClosing += Form_menu_FormClosing;
+            
+            // Initialiser les onglets et charger le premier
+            InitialiserOnglets();
+        }
+
+        private void Form_menu_FormClosing(object? sender, FormClosingEventArgs e)
+        {
+            // Nettoyer les ressources
+            try
+            {
+                formEchange?.Dispose();
+                formInventaire?.Dispose();
+                formCreerOffre?.Dispose();
+                
+                // Forcer la fermeture complète de l'application
+                Application.Exit();
+            }
+            catch
+            {
+                // Ignorer les erreurs lors de la fermeture
+            }
         }
 
         private async void TabControl_SelectedIndexChanged(object? sender, EventArgs e)
         {
-            // Index 2 = "Créer une offre"
-            if (tabControl_menu.SelectedIndex == 2 && formCreerOffre != null)
+            if (tabControl_menu.SelectedTab == tabPage_echange)
             {
-                await formCreerOffre.RefreshMarketAsync();
+                if (formEchange == null)
+                {
+                    formEchange = new form_echange(this);
+                    formEchange.TopLevel = false;
+                    formEchange.FormBorderStyle = FormBorderStyle.None;
+                    formEchange.Dock = DockStyle.Fill;
+                    tabPage_echange.Controls.Add(formEchange);
+                    formEchange.Show();
+                }
+                else
+                {
+                    // Rafraîchir la liste quand on revient sur l'onglet
+                    await formEchange.RefreshFromExternalAsync();
+                }
+            }
+            else if (tabControl_menu.SelectedTab == tabPage_inventaire)
+            {
+                if (formInventaire == null)
+                {
+                    formInventaire = new form_inventaire(this);
+                    formInventaire.TopLevel = false;
+                    formInventaire.FormBorderStyle = FormBorderStyle.None;
+                    formInventaire.Dock = DockStyle.Fill;
+                    tabPage_inventaire.Controls.Add(formInventaire);
+                    formInventaire.Show();
+                }
+            }
+            else if (tabControl_menu.SelectedTab == tabPage_creer_offre)
+            {
+                if (formCreerOffre == null)
+                {
+                    formCreerOffre = new form_cr_offres(this);
+                    formCreerOffre.TopLevel = false;
+                    formCreerOffre.FormBorderStyle = FormBorderStyle.None;
+                    formCreerOffre.Dock = DockStyle.Fill;
+                    tabPage_creer_offre.Controls.Add(formCreerOffre);
+                    formCreerOffre.Show();
+                }
+                else
+                {
+                    // Rafraîchir le marché
+                    await formCreerOffre.RefreshMarketAsync();
+                }
             }
         }
 
         private void InitialiserOnglets()
         {
-            // Echange
-            formEchange = new form_echange(this);
-            formEchange.TopLevel = false;
-            formEchange.FormBorderStyle = FormBorderStyle.None;
-            formEchange.Dock = DockStyle.Fill;
-            tabPage_echange.Controls.Add(formEchange);
-            formEchange.Show();
-
-            // Inventaire
-            formInventaire = new form_inventaire(this);
-            formInventaire.TopLevel = false;
-            formInventaire.FormBorderStyle = FormBorderStyle.None;
-            formInventaire.Dock = DockStyle.Fill;
-            tabPage_inventaire.Controls.Add(formInventaire);
-            formInventaire.Show();
-
-            // Créer offre
-            formCreerOffre = new form_cr_offres(this);
-            formCreerOffre.TopLevel = false;
-            formCreerOffre.FormBorderStyle = FormBorderStyle.None;
-            formCreerOffre.Dock = DockStyle.Fill;
-            tabPage_creer_offre.Controls.Add(formCreerOffre);
-            formCreerOffre.Show();
+            // Charger le premier onglet manuellement
+            if (tabControl_menu.TabPages.Count > 0)
+            {
+                tabControl_menu.SelectedIndex = 0;
+                
+                // Déclencher manuellement le chargement du premier onglet
+                TabControl_SelectedIndexChanged(this, EventArgs.Empty);
+            }
         }
 
-        public form_menu() : this(new class_utilisateur { Id = 0, Pseudo = "Invité" }) { }
+        public form_menu() : this(new class_utilisateur { Id = 0, Pseudo = "Invité" })
+        {
+        }
     }
 }
