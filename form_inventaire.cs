@@ -305,5 +305,11 @@ namespace Projet_C_
             if (selectedIndex >= 0 && selectedIndex < listBox_marche.Items.Count)
                 listBox_marche.SelectedIndex = selectedIndex;
         }
+
+        // ✅ NOUVELLE MÉTHODE : Recharger l'inventaire depuis l'extérieur
+        public void RefreshInventory()
+        {
+            LoadDraftFromDb();
+        }
     }
 }

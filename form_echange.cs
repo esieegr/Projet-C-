@@ -108,7 +108,8 @@ namespace Projet_C_
                 join ur in _db.Utilisateurs on e.utilisateur_receveur equals ur.Id
                 join op in _db.Objets on e.objet_propose equals op.Id
                 join od in _db.Objets on e.objet_demande equals od.Id
-                where e.statut != "refuse"
+                where e.statut != "refuse" 
+                   && e.statut != "accepte"  // ✅ FIX : Exclure les échanges acceptés   
                    && (e.utilisateur_proposant == currentUserId || e.utilisateur_receveur == currentUserId)
                 select new EchangeVM
                 {
@@ -170,19 +171,142 @@ namespace Projet_C_
                 return;
             }
 
+            int currentUserId = m?.CurrentUser?.Id ?? 0;
+
+            if (vm.ProposantId == currentUserId)
+            {
+                MessageBox.Show(
+                    "Vous ne pouvez pas accepter votre propre offre.\n\n" +
+                    "Seul le destinataire peut accepter un échange.",
+                    "Action non autorisée",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (vm.ReceveurId != currentUserId)
+            {
+                MessageBox.Show(
+                    "Vous ne pouvez accepter que les offres qui vous sont destinées.",
+                    "Action non autorisée",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+
             var result = MessageBox.Show(
-                $"Accepter l'échange :\n• Proposant : {vm.Proposant}\n• Offre : {vm.Offre}\n• Demande : {vm.Demande}",
+                $"Accepter l'échange ?\n\n" +
+                $"• Vous recevrez : {vm.Offre} (de {vm.Proposant})\n" +
+                $"• Vous donnerez : {vm.Demande}\n\n" +
+                $"Les objets seront automatiquement transférés.",
                 "Confirmer l'acceptation",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
-                await UpdateStatutAndLogAsync(vm.Id, "accepte", "Statut: accepté");
-                MessageBox.Show("Échange accepté avec succès !", "Succès",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                await RefreshListAsync();
+                try
+                {
+                    await TransfererObjetsAsync(vm.Id);
+                    await UpdateStatutAndLogAsync(vm.Id, "accepte", "Statut: accepté - Objets transférés");
+                    
+                    MessageBox.Show(
+                        "Échange accepté avec succès !\n\n" +
+                        "Les objets ont été transférés dans vos inventaires respectifs.",
+                        "Succès",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+            
+                    // ✅ FIX : Rafraîchir la liste des échanges
+                    await RefreshListAsync();
+            
+                    // ✅ FIX : Rafraîchir l'inventaire et le marché
+                    await RefreshRelatedFormsAsync();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        $"Erreur lors de l'acceptation de l'échange :\n{ex.Message}",
+                        "Erreur",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
             }
+        }
+
+        // ✅ NOUVELLE MÉTHODE : Rafraîchir les autres formulaires
+        private async Task RefreshRelatedFormsAsync()
+        {
+            try
+            {
+                // Rafraîchir l'inventaire via le menu principal
+                var inventaireForm = m?.Controls
+                    .Find("tabPage_inventaire", true)
+                    .FirstOrDefault()
+                    ?.Controls.OfType<form_inventaire>()
+                    .FirstOrDefault();
+        
+                inventaireForm?.RefreshInventory();
+
+                // Rafraîchir le marché
+                var marcheForm = m?.Controls
+                    .Find("tabPage_creer_offre", true)
+                    .FirstOrDefault()
+                    ?.Controls.OfType<form_cr_offres>()
+                    .FirstOrDefault();
+        
+                if (marcheForm != null)
+                    await marcheForm.RefreshMarketAsync();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Erreur rafraîchissement formulaires : {ex.Message}");
+            }
+        }
+
+        private async Task TransfererObjetsAsync(int echangeId)
+        {
+            using var db = new SchoolContext();
+            
+            // Récupérer l'échange
+            var echange = await db.Echanges
+                .FirstOrDefaultAsync(e => e.Id == echangeId);
+            
+            if (echange == null)
+                throw new Exception("Échange introuvable.");
+
+            // Récupérer les objets
+            var objetPropose = await db.Objets
+                .FirstOrDefaultAsync(o => o.Id == echange.objet_propose);
+            
+            var objetDemande = await db.Objets
+                .FirstOrDefaultAsync(o => o.Id == echange.objet_demande);
+
+            if (objetPropose == null || objetDemande == null)
+                throw new Exception("Un ou plusieurs objets sont introuvables.");
+
+            // ✅ Vérifier que les propriétaires sont corrects avant le transfert
+            if (objetPropose.proprietaire_id != echange.utilisateur_proposant)
+                throw new Exception($"L'objet '{objetPropose.Nom}' n'appartient plus au proposant.");
+            
+            if (objetDemande.proprietaire_id != echange.utilisateur_receveur)
+                throw new Exception($"L'objet '{objetDemande.Nom}' n'appartient plus au receveur.");
+
+            // ✅ TRANSFERT : Échanger les propriétaires
+            int tempId = objetPropose.proprietaire_id ?? 0;
+            objetPropose.proprietaire_id = objetDemande.proprietaire_id;
+            objetDemande.proprietaire_id = tempId;
+
+            // ✅ Marquer les objets comme indisponibles (optionnel, selon votre logique métier)
+            // objetPropose.disponible = false;
+            // objetDemande.disponible = false;
+
+            await db.SaveChangesAsync();
+
+            System.Diagnostics.Debug.WriteLine(
+                $"DEBUG: Transfert effectué - " +
+                $"{objetPropose.Nom} -> User#{objetPropose.proprietaire_id}, " +
+                $"{objetDemande.Nom} -> User#{objetDemande.proprietaire_id}");
         }
 
         private async Task RefuserAsync()
@@ -195,15 +319,32 @@ namespace Projet_C_
                 return;
             }
 
+            int currentUserId = m?.CurrentUser?.Id ?? 0;
+
+            // ✅ Seul le receveur peut refuser
+            if (vm.ReceveurId != currentUserId)
+            {
+                MessageBox.Show(
+                    "Seul le destinataire de l'offre peut la refuser.\n\n" +
+                    "Si vous êtes le proposant, vous pouvez utiliser 'Contre-offre' pour annuler.",
+                    "Action non autorisée",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+
             var result = MessageBox.Show(
-                $"Refuser l'échange :\n• Proposant : {vm.Proposant}\n• Offre : {vm.Offre}\n• Demande : {vm.Demande}\n\nCette action masquera l'offre de la liste.",
+                $"Refuser l'échange de {vm.Proposant} ?\n\n" +
+                $"• Offre : {vm.Offre}\n" +
+                $"• Demande : {vm.Demande}\n\n" +
+                $"Cette action masquera l'offre de la liste.",
                 "Confirmer le refus",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes)
             {
-                await UpdateStatutAndLogAsync(vm.Id, "refuse", "Statut: refusé");
+                await UpdateStatutAndLogAsync(vm.Id, "refuse", "Statut: refusé par le receveur");
                 MessageBox.Show("Échange refusé. L'offre a été retirée de la liste.", "Refus enregistré",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 await RefreshListAsync();
