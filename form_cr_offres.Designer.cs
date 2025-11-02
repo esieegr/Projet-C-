@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             listBox_marche = new ListBox();
-            label1 = new Label();
+            label_description_titre = new Label();
+            label_description = new Label();
             button_faire_offre = new Button();
             textBox_recherche = new TextBox();
             button_recherche = new Button();
@@ -43,14 +44,25 @@
             listBox_marche.Size = new Size(260, 304);
             listBox_marche.TabIndex = 1;
             // 
-            // label1
+            // label_description_titre
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(318, 63);
-            label1.Name = "label1";
-            label1.Size = new Size(114, 20);
-            label1.TabIndex = 2;
-            label1.Text = "Caractéristiques";
+            label_description_titre.AutoSize = true;
+            label_description_titre.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label_description_titre.Location = new Point(318, 63);
+            label_description_titre.Name = "label_description_titre";
+            label_description_titre.Size = new Size(89, 20);
+            label_description_titre.TabIndex = 2;
+            label_description_titre.Text = "Description";
+            // 
+            // label_description
+            // 
+            label_description.BorderStyle = BorderStyle.FixedSingle;
+            label_description.Location = new Point(318, 90);
+            label_description.Name = "label_description";
+            label_description.Size = new Size(270, 235);
+            label_description.TabIndex = 6;
+            label_description.Text = "Sélectionnez un objet pour voir sa description";
+            label_description.Padding = new Padding(5);
             // 
             // button_faire_offre
             // 
@@ -82,10 +94,11 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(621, 408);
+            Controls.Add(label_description);
             Controls.Add(button_recherche);
             Controls.Add(textBox_recherche);
             Controls.Add(button_faire_offre);
-            Controls.Add(label1);
+            Controls.Add(label_description_titre);
             Controls.Add(listBox_marche);
             Name = "form_cr_offres";
             Text = "Créer une offre";
@@ -95,7 +108,8 @@
 
         #endregion
         private ListBox listBox_marche;
-        private Label label1;
+        private Label label_description_titre;
+        private Label label_description;
         private Button button_recherche;
         private TextBox textBox_recherche;
         private Button button_faire_offre;

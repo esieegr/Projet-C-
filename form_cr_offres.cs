@@ -28,6 +28,7 @@ namespace Projet_C_
             public string Proprietaire { get; set; } = "";
             public string Nom { get; set; } = "";
             public string Type { get; set; } = "";
+            public string Description { get; set; } = "";
 
             public string Label => 
                 $"{(string.IsNullOrEmpty(Nom) ? "?" : Nom)} — par " +
@@ -45,9 +46,24 @@ namespace Projet_C_
             listBox_marche.DisplayMember = "Label";
             listBox_marche.ValueMember = "IdObjet";
 
+            // ✅ CORRECTION : Utiliser le bon nom de label
+            listBox_marche.SelectedIndexChanged += (s, e) =>
+            {
+                if (listBox_marche.SelectedItem is MarketVM vm)
+                {
+                    label_description.Text = string.IsNullOrWhiteSpace(vm.Description) 
+                        ? "Aucune description disponible" 
+                        : vm.Description;
+                }
+                else
+                {
+                    label_description.Text = "Sélectionnez un objet pour voir sa description";
+                }
+            };
+
             // Attachement des événements
             button_recherche.Click += button_recherche_Click;
-            button_faire_offre.Click += button_faire_offre_Click;  // ← RAJOUTEZ CETTE LIGNE
+            button_faire_offre.Click += button_faire_offre_Click;
 
             // Chargement initial des données
             this.Load += async (s, e) => await LoadMarketAsync();
@@ -120,7 +136,8 @@ namespace Projet_C_
         {
             string baseQuery = @"
 SELECT o.Id, o.Nom, IFNULL(o.type_objet,'') AS Type, o.proprietaire_id,
-       IFNULL((SELECT u.Pseudo FROM Utilisateurs u WHERE u.Id = o.proprietaire_id),'') AS Pseudo
+       IFNULL((SELECT u.Pseudo FROM Utilisateurs u WHERE u.Id = o.proprietaire_id),'') AS Pseudo,
+       IFNULL(o.Description,'') AS Description
 FROM Objets o
 WHERE IFNULL(o.disponible,1)=1
   AND o.proprietaire_id IS NOT NULL
@@ -152,7 +169,8 @@ WHERE IFNULL(o.disponible,1)=1
                         Nom = rd.IsDBNull(1) ? "" : rd.GetString(1),
                         Type = rd.IsDBNull(2) ? "" : rd.GetString(2),
                         ProprietaireId = rd.IsDBNull(3) ? 0 : rd.GetInt32(3),
-                        Proprietaire = rd.IsDBNull(4) ? "" : rd.GetString(4)
+                        Proprietaire = rd.IsDBNull(4) ? "" : rd.GetString(4),
+                        Description = rd.IsDBNull(5) ? "" : rd.GetString(5)
                     });
                 }
             }

@@ -33,84 +33,107 @@
             button_proposer = new Button();
             textBox_recherche = new TextBox();
             button_rechercher = new Button();
-            label2 = new Label();
+            label_description_titre = new Label();
+            label_description = new Label();
             button_annuler = new Button();
             SuspendLayout();
             // 
             // listBox_mes_objets
             // 
             listBox_mes_objets.FormattingEnabled = true;
-            listBox_mes_objets.Location = new Point(57, 60);
+            listBox_mes_objets.Location = new Point(20, 85);
             listBox_mes_objets.Name = "listBox_mes_objets";
-            listBox_mes_objets.Size = new Size(257, 284);
+            listBox_mes_objets.Size = new Size(300, 264);
             listBox_mes_objets.TabIndex = 0;
             // 
             // label_objet_demande
             // 
             label_objet_demande.AutoSize = true;
-            label_objet_demande.Location = new Point(567, 60);
+            label_objet_demande.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            label_objet_demande.Location = new Point(340, 20);
             label_objet_demande.Name = "label_objet_demande";
-            label_objet_demande.Size = new Size(122, 20);
+            label_objet_demande.Size = new Size(240, 23);
             label_objet_demande.TabIndex = 1;
-            label_objet_demande.Text = "Offre sélectionée";
+            label_objet_demande.Text = "Objet demandé : Dragon Ball Z (de alice)";
             // 
             // button_proposer
             // 
-            button_proposer.Location = new Point(330, 315);
+            button_proposer.BackColor = Color.FromArgb(76, 175, 80);
+            button_proposer.FlatStyle = FlatStyle.Flat;
+            button_proposer.ForeColor = Color.White;
+            button_proposer.Location = new Point(340, 320);
             button_proposer.Name = "button_proposer";
-            button_proposer.Size = new Size(124, 29);
+            button_proposer.Size = new Size(140, 35);
             button_proposer.TabIndex = 5;
-            button_proposer.Text = "Valider l'offre";
-            button_proposer.UseVisualStyleBackColor = true;
+            button_proposer.Text = "✓ Valider l'offre";
+            button_proposer.UseVisualStyleBackColor = false;
             // 
             // textBox_recherche
             // 
-            textBox_recherche.Location = new Point(57, 18);
+            textBox_recherche.Location = new Point(20, 20);
             textBox_recherche.Name = "textBox_recherche";
-            textBox_recherche.Size = new Size(178, 27);
+            textBox_recherche.PlaceholderText = "Rechercher un objet...";
+            textBox_recherche.Size = new Size(200, 27);
             textBox_recherche.TabIndex = 6;
             // 
             // button_rechercher
             // 
-            button_rechercher.Location = new Point(241, 17);
+            button_rechercher.Location = new Point(226, 19);
             button_rechercher.Name = "button_rechercher";
             button_rechercher.Size = new Size(94, 29);
             button_rechercher.TabIndex = 7;
-            button_rechercher.Text = "Rechercher";
+            button_rechercher.Text = "🔍 Rechercher";
             button_rechercher.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // label_description_titre
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(330, 60);
-            label2.Name = "label2";
-            label2.Size = new Size(114, 20);
-            label2.TabIndex = 8;
-            label2.Text = "Caractéristiques";
+            label_description_titre.AutoSize = true;
+            label_description_titre.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label_description_titre.Location = new Point(340, 60);
+            label_description_titre.Name = "label_description_titre";
+            label_description_titre.Size = new Size(165, 20);
+            label_description_titre.TabIndex = 8;
+            label_description_titre.Text = "Description de l'objet";
+            // 
+            // label_description
+            // 
+            label_description.BorderStyle = BorderStyle.FixedSingle;
+            label_description.Location = new Point(340, 85);
+            label_description.Name = "label_description";
+            label_description.Size = new Size(420, 220);
+            label_description.TabIndex = 10;
+            label_description.Text = "Sélectionnez un objet pour voir sa description";
+            label_description.Padding = new Padding(10);
             // 
             // button_annuler
             // 
-            button_annuler.Location = new Point(485, 315);
+            button_annuler.FlatStyle = FlatStyle.Flat;
+            button_annuler.Location = new Point(510, 320);
             button_annuler.Name = "button_annuler";
-            button_annuler.Size = new Size(124, 29);
+            button_annuler.Size = new Size(140, 35);
             button_annuler.TabIndex = 9;
-            button_annuler.Text = "Annuler";
+            button_annuler.Text = "✗ Annuler";
             button_annuler.UseVisualStyleBackColor = true;
             // 
             // form_mon_offre
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(794, 387);
+            ClientSize = new Size(780, 375);
+            Controls.Add(label_description);
             Controls.Add(button_annuler);
-            Controls.Add(label2);
+            Controls.Add(label_description_titre);
             Controls.Add(button_rechercher);
             Controls.Add(textBox_recherche);
             Controls.Add(button_proposer);
             Controls.Add(label_objet_demande);
             Controls.Add(listBox_mes_objets);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "form_mon_offre";
-            Text = "Mon offre";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Créer une offre d'échange";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -122,7 +145,8 @@
         private Button button_proposer;
         private TextBox textBox_recherche;
         private Button button_rechercher;
-        private Label label2;
+        private Label label_description_titre;
+        private Label label_description;
         private Button button_annuler;
     }
 }

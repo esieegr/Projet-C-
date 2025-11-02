@@ -43,7 +43,8 @@
             button_rechercher = new Button();
             listBox_offres = new ListBox();
             label_nbr_offree = new Label();
-            label1 = new Label();
+            label_details_titre = new Label();
+            label_details = new Label();
             button_faire_offre = new Button();
             SuspendLayout();
             // 
@@ -108,14 +109,25 @@
             label_nbr_offree.TabIndex = 15;
             label_nbr_offree.Text = "Offres actives : 0";
             // 
-            // label1
+            // label_details_titre
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(370, 75);
-            label1.Name = "label1";
-            label1.Size = new Size(114, 20);
-            label1.TabIndex = 17;
-            label1.Text = "Caractéristiques";
+            label_details_titre.AutoSize = true;
+            label_details_titre.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label_details_titre.Location = new Point(370, 75);
+            label_details_titre.Name = "label_details_titre";
+            label_details_titre.Size = new Size(131, 20);
+            label_details_titre.TabIndex = 17;
+            label_details_titre.Text = "Détails de l'offre";
+            // 
+            // label_details
+            // 
+            label_details.BorderStyle = BorderStyle.FixedSingle;
+            label_details.Location = new Point(370, 100);
+            label_details.Name = "label_details";
+            label_details.Size = new Size(350, 239);
+            label_details.TabIndex = 18;
+            label_details.Text = "Sélectionnez une offre pour voir les détails";
+            label_details.Padding = new Padding(5);
             // 
             // button_faire_offre
             // 
@@ -131,7 +143,8 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(750, 400);
-            Controls.Add(label1);
+            Controls.Add(label_details);
+            Controls.Add(label_details_titre);
             Controls.Add(label_nbr_offree);
             Controls.Add(button_faire_offre);
             Controls.Add(listBox_offres);
@@ -155,7 +168,8 @@
         private Button button_rechercher;
         private ListBox listBox_offres;
         private Label label_nbr_offree;
-        private Label label1;
+        private Label label_details_titre;
+        private Label label_details;
         private Button button_faire_offre;
     }
 }

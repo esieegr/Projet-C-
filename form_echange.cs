@@ -7,10 +7,8 @@ namespace Projet_C_
 {
     public partial class form_echange : Form
     {
-        // Contexte EF existant
         private readonly SchoolContext _db = new();
 
-        // VM affichée dans la ListBox
         private sealed class EchangeVM
         {
             public int Id { get; init; }
@@ -18,16 +16,18 @@ namespace Projet_C_
             public string Receveur { get; init; } = "";
             public string Offre { get; init; } = "";
             public string Demande { get; init; } = "";
-            public int ProposantId { get; init; }  // ✅ AJOUT pour vérification
-            public int ReceveurId { get; init; }   // ✅ AJOUT pour vérification
-            public override string ToString() =>
-                $"#{Id} • {Proposant} ↔ {Receveur} • Offre: {Offre} • Demande: {Demande}";
+            public string DescriptionOffre { get; init; } = "";
+            public string DescriptionDemande { get; init; } = "";
+            public int ProposantId { get; init; }
+            public int ReceveurId { get; init; }
+            
+            public string NomEchange => $"#{Id} • {Proposant} ↔ {Receveur}";
+
+            public override string ToString() => NomEchange;
         }
 
-        // Binding
         private readonly BindingList<EchangeVM> _items = new();
         private readonly BindingSource _bs = new();
-
         private readonly form_menu m;
 
         public form_echange(form_menu m)
@@ -35,40 +35,48 @@ namespace Projet_C_
             InitializeComponent();
             this.m = m;
 
-            // Remplit le filtre (contrôles déjà dans ton Designer)
             listbox_type.Items.Clear();
             listbox_type.Items.Add("Utilisateur");
             listbox_type.Items.Add("Type");
             listbox_type.SelectedIndex = 0;
 
-            // Binding propre
             _bs.DataSource = _items;
             listBox_offres.DataSource = _bs;
 
-            // Recherche
+            // ✅ CORRECTION : Utiliser le bon nom de label
+            listBox_offres.SelectedIndexChanged += (s, e) =>
+            {
+                if (listBox_offres.SelectedItem is EchangeVM vm)
+                {
+                    label_details.Text = 
+                        $"📦 Offre : {vm.Offre}\n" +
+                        $"🎯 Demande : {vm.Demande}\n\n" +
+                        $"Description offre :\n{(string.IsNullOrWhiteSpace(vm.DescriptionOffre) ? "N/A" : vm.DescriptionOffre)}\n\n" +
+                        $"Description demande :\n{(string.IsNullOrWhiteSpace(vm.DescriptionDemande) ? "N/A" : vm.DescriptionDemande)}";
+                }
+                else
+                {
+                    label_details.Text = "Sélectionnez une offre pour voir les détails";
+                }
+            };
+
             button_rechercher.Click += async (_, __) => await RefreshListAsync();
             listbox_type.SelectedIndexChanged += async (_, __) => await RefreshListAsync();
-
-            // Détail (historique au double-clic)
             listBox_offres.DoubleClick += (_, __) => OuvrirDetail();
-
-            // Actions
             button_accepter.Click += async (_, __) => await AccepterAsync();
             button_refuser.Click += async (_, __) => await RefuserAsync();
             button_faire_offre.Click += button_faire_offre_Click;
 
-            // Init explicite (pas besoin d'event Load)
             _ = InitAsync();
         }
 
-        // ====== Init : setup + seed + premier refresh ======
         private async Task InitAsync()
         {
             try
             {
-                await DbSetup.RunAsync(_db);        // colonnes/table/trigger si absents
-                await DbSetup.SeedSampleAsync(_db); // jeu de données si BDD vide
-                await RefreshListAsync();           // charge la liste
+                await DbSetup.RunAsync(_db);
+                await DbSetup.SeedSampleAsync(_db);
+                await RefreshListAsync();
             }
             catch (Exception ex)
             {
@@ -77,13 +85,11 @@ namespace Projet_C_
             }
         }
 
-        // ====== Méthode publique pour rafraîchir depuis l'extérieur ======
         public async Task RefreshFromExternalAsync()
         {
             await RefreshListAsync();
         }
 
-        // ====== Recherche & remplissage de la liste ======
         private async Task RefreshListAsync()
         {
             string? q = string.IsNullOrWhiteSpace(Rechercher.Text) ? null : Rechercher.Text.Trim();
@@ -96,15 +102,14 @@ namespace Projet_C_
                 return;
             }
 
-            // Jointures sur tes tables existantes
             var query =
                 from e in _db.Echanges
                 join up in _db.Utilisateurs on e.utilisateur_proposant equals up.Id
                 join ur in _db.Utilisateurs on e.utilisateur_receveur equals ur.Id
                 join op in _db.Objets on e.objet_propose equals op.Id
                 join od in _db.Objets on e.objet_demande equals od.Id
-                where e.statut != "refuse"  // ✅ EXCLUSION DES OFFRES REFUSÉES
-                   && (e.utilisateur_proposant == currentUserId || e.utilisateur_receveur == currentUserId) // ✅ FILTRE PAR UTILISATEUR
+                where e.statut != "refuse"
+                   && (e.utilisateur_proposant == currentUserId || e.utilisateur_receveur == currentUserId)
                 select new EchangeVM
                 {
                     Id = e.Id,
@@ -112,8 +117,10 @@ namespace Projet_C_
                     Receveur = ur.Pseudo,
                     Offre = op.Nom,
                     Demande = od.Nom,
-                    ProposantId = e.utilisateur_proposant,  // ✅ AJOUT
-                    ReceveurId = e.utilisateur_receveur      // ✅ AJOUT
+                    DescriptionOffre = op.Description ?? "",
+                    DescriptionDemande = od.Description ?? "",
+                    ProposantId = e.utilisateur_proposant,
+                    ReceveurId = e.utilisateur_receveur
                 };
 
             if (!string.IsNullOrEmpty(q))
@@ -124,7 +131,7 @@ namespace Projet_C_
                         EF.Functions.Like(x.Proposant, $"%{q}%") ||
                         EF.Functions.Like(x.Receveur, $"%{q}%"));
                 }
-                else // "Type" => noms d'objets
+                else
                 {
                     query = query.Where(x =>
                         EF.Functions.Like(x.Offre, $"%{q}%") ||
@@ -144,7 +151,6 @@ namespace Projet_C_
             _items.RaiseListChangedEvents = true;
             _bs.ResetBindings(false);
 
-            // Mettre à jour le compteur d'offres si le label existe
             try
             {
                 label_nbr_offree.Text = $"Offres actives : {_items.Count}";
@@ -152,7 +158,6 @@ namespace Projet_C_
             catch { }
         }
 
-        // ====== Actions : accepter / refuser + log historique ======
         private EchangeVM? Current() => listBox_offres.SelectedItem as EchangeVM;
 
         private async Task AccepterAsync()
@@ -215,7 +220,6 @@ INSERT INTO EchangeEvents(EchangeId, Type, Contenu)
 VALUES ({0}, 'statut', {1});", echangeId, note);
         }
 
-        // ====== Contre-offre : permet de faire une contre-proposition ======
         private async void button_faire_offre_Click(object sender, EventArgs e)
         {
             var vm = Current();
@@ -228,7 +232,6 @@ VALUES ({0}, 'statut', {1});", echangeId, note);
 
             int currentUserId = m?.CurrentUser?.Id ?? 0;
 
-            // ✅ VÉRIFICATION : Empêcher de faire une contre-offre à soi-même
             if (vm.ProposantId == currentUserId && vm.ReceveurId == currentUserId)
             {
                 MessageBox.Show("Vous ne pouvez pas faire une contre-offre à vous-même.",
@@ -238,7 +241,6 @@ VALUES ({0}, 'statut', {1});", echangeId, note);
                 return;
             }
 
-            // ✅ VÉRIFICATION : On ne peut faire une contre-offre que si on est le receveur
             if (vm.ReceveurId != currentUserId)
             {
                 MessageBox.Show("Vous ne pouvez faire une contre-offre que pour les offres que vous avez reçues.",
@@ -248,7 +250,6 @@ VALUES ({0}, 'statut', {1});", echangeId, note);
                 return;
             }
 
-            // Demander confirmation pour la contre-offre
             var confirmation = MessageBox.Show(
                 $"Faire une contre-offre refusera automatiquement l'offre actuelle.\n\n" +
                 $"Offre actuelle :\n" +
@@ -263,7 +264,6 @@ VALUES ({0}, 'statut', {1});", echangeId, note);
             if (confirmation != DialogResult.Yes)
                 return;
 
-            // Récupérer les détails de l'échange pour faire une contre-offre
             using (var db = new SchoolContext())
             {
                 var echange = db.Echanges.FirstOrDefault(e => e.Id == vm.Id);
@@ -274,7 +274,6 @@ VALUES ({0}, 'statut', {1});", echangeId, note);
                     return;
                 }
 
-                // Ouvrir form_mon_offre pour faire une contre-offre
                 var formMonOffre = new form_mon_offre(
                     m,
                     echange.objet_propose,
@@ -285,7 +284,6 @@ VALUES ({0}, 'statut', {1});", echangeId, note);
 
                 if (formMonOffre.ShowDialog() == DialogResult.OK)
                 {
-                    // ✅ REFUSER AUTOMATIQUEMENT L'OFFRE PRÉCÉDENTE
                     await UpdateStatutAndLogAsync(vm.Id, "refuse", "Statut: refusé (contre-offre créée)");
                     
                     MessageBox.Show(
@@ -299,7 +297,6 @@ VALUES ({0}, 'statut', {1});", echangeId, note);
             }
         }
 
-        // ====== Détail : affiche l'historique (MessageBox) ======
         private async void OuvrirDetail()
         {
             var vm = Current(); if (vm is null) return;
@@ -333,7 +330,6 @@ VALUES ({0}, 'statut', {1});", echangeId, note);
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        // Handlers auto-générés (laisse-les si le Designer y fait référence)
         private void Form1_Load(object sender, EventArgs e) { }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e) { }
         private void button_recherche_Click(object sender, EventArgs e) { }
