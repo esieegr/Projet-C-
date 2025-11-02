@@ -18,6 +18,8 @@ namespace Projet_C_
             public string Receveur { get; init; } = "";
             public string Offre { get; init; } = "";
             public string Demande { get; init; } = "";
+            public int ProposantId { get; init; }  // ✅ AJOUT pour vérification
+            public int ReceveurId { get; init; }   // ✅ AJOUT pour vérification
             public override string ToString() =>
                 $"#{Id} • {Proposant} ↔ {Receveur} • Offre: {Offre} • Demande: {Demande}";
         }
@@ -109,7 +111,9 @@ namespace Projet_C_
                     Proposant = up.Pseudo,
                     Receveur = ur.Pseudo,
                     Offre = op.Nom,
-                    Demande = od.Nom
+                    Demande = od.Nom,
+                    ProposantId = e.utilisateur_proposant,  // ✅ AJOUT
+                    ReceveurId = e.utilisateur_receveur      // ✅ AJOUT
                 };
 
             if (!string.IsNullOrEmpty(q))
@@ -212,7 +216,7 @@ VALUES ({0}, 'statut', {1});", echangeId, note);
         }
 
         // ====== Contre-offre : permet de faire une contre-proposition ======
-        private void button_faire_offre_Click(object sender, EventArgs e)
+        private async void button_faire_offre_Click(object sender, EventArgs e)
         {
             var vm = Current();
             if (vm is null)
@@ -222,6 +226,43 @@ VALUES ({0}, 'statut', {1});", echangeId, note);
                 return;
             }
 
+            int currentUserId = m?.CurrentUser?.Id ?? 0;
+
+            // ✅ VÉRIFICATION : Empêcher de faire une contre-offre à soi-même
+            if (vm.ProposantId == currentUserId && vm.ReceveurId == currentUserId)
+            {
+                MessageBox.Show("Vous ne pouvez pas faire une contre-offre à vous-même.",
+                    "Action non autorisée",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+
+            // ✅ VÉRIFICATION : On ne peut faire une contre-offre que si on est le receveur
+            if (vm.ReceveurId != currentUserId)
+            {
+                MessageBox.Show("Vous ne pouvez faire une contre-offre que pour les offres que vous avez reçues.",
+                    "Action non autorisée",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Demander confirmation pour la contre-offre
+            var confirmation = MessageBox.Show(
+                $"Faire une contre-offre refusera automatiquement l'offre actuelle.\n\n" +
+                $"Offre actuelle :\n" +
+                $"• De : {vm.Proposant}\n" +
+                $"• Offre : {vm.Offre}\n" +
+                $"• Contre : {vm.Demande}\n\n" +
+                $"Voulez-vous continuer ?",
+                "Confirmer la contre-offre",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (confirmation != DialogResult.Yes)
+                return;
+
             // Récupérer les détails de l'échange pour faire une contre-offre
             using (var db = new SchoolContext())
             {
@@ -229,14 +270,6 @@ VALUES ({0}, 'statut', {1});", echangeId, note);
                 if (echange == null)
                 {
                     MessageBox.Show("Échange introuvable.", "Erreur",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                var objetDemande = db.Objets.FirstOrDefault(o => o.Id == echange.objet_demande);
-                if (objetDemande == null)
-                {
-                    MessageBox.Show("Objet demandé introuvable.", "Erreur",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
@@ -252,7 +285,16 @@ VALUES ({0}, 'statut', {1});", echangeId, note);
 
                 if (formMonOffre.ShowDialog() == DialogResult.OK)
                 {
-                    _ = RefreshListAsync();
+                    // ✅ REFUSER AUTOMATIQUEMENT L'OFFRE PRÉCÉDENTE
+                    await UpdateStatutAndLogAsync(vm.Id, "refuse", "Statut: refusé (contre-offre créée)");
+                    
+                    MessageBox.Show(
+                        "Contre-offre créée avec succès !\nL'offre précédente a été refusée.",
+                        "Succès",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
+                    await RefreshListAsync();
                 }
             }
         }

@@ -31,6 +31,13 @@ namespace Projet_C_
 
         private void Form_menu_FormClosing(object? sender, FormClosingEventArgs e)
         {
+            // Si l'utilisateur demande une déconnexion, ne pas fermer l'app
+            if (this.DialogResult == DialogResult.Retry)
+            {
+                e.Cancel = false;
+                return;
+            }
+
             // Nettoyer les ressources
             try
             {
@@ -106,6 +113,30 @@ namespace Projet_C_
                 
                 // Déclencher manuellement le chargement du premier onglet
                 TabControl_SelectedIndexChanged(this, EventArgs.Empty);
+            }
+        }
+
+        /// <summary>
+        /// Déconnecte l'utilisateur actuel et retourne à l'écran de connexion
+        /// </summary>
+        public void Deconnexion()
+        {
+            var result = MessageBox.Show(
+                $"Voulez-vous vraiment vous déconnecter ({CurrentUser.Pseudo}) ?",
+                "Confirmation de déconnexion",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                // Nettoyer les ressources
+                formEchange?.Dispose();
+                formInventaire?.Dispose();
+                formCreerOffre?.Dispose();
+
+                // Utiliser DialogResult.Retry comme signal de déconnexion
+                this.DialogResult = DialogResult.Retry;
+                this.Close();
             }
         }
 

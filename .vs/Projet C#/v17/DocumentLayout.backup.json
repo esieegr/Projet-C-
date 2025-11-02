@@ -3,12 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|c:\\users\\gianni\\source\\repos\\projet c#\\form_menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|solutionrelative:form_menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|c:\\users\\gianni\\source\\repos\\projet c#\\form_echange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|solutionrelative:form_echange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|c:\\users\\gianni\\source\\repos\\projet c#\\form_connexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|solutionrelative:form_connexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|c:\\users\\gianni\\source\\repos\\projet c#\\form_inventaire.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|solutionrelative:form_inventaire.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|c:\\users\\gianni\\source\\repos\\projet c#\\form_menu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|solutionrelative:form_menu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|c:\\users\\gianni\\source\\repos\\projet c#\\form_inventaire.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|solutionrelative:form_inventaire.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|c:\\users\\gianni\\source\\repos\\projet c#\\form_echange.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|solutionrelative:form_echange.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|c:\\users\\gianni\\source\\repos\\projet c#\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|c:\\users\\gianni\\source\\repos\\projet c#\\form_menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|solutionrelative:form_menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|c:\\users\\gianni\\source\\repos\\projet c#\\form_cr_offres.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,16 +63,8 @@
       "RelativeMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|solutionrelative:form_cr_offres.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|c:\\users\\gianni\\source\\repos\\projet c#\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|c:\\users\\gianni\\source\\repos\\projet c#\\usermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|solutionrelative:usermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|c:\\users\\gianni\\source\\repos\\projet c#\\form_echange.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|solutionrelative:form_echange.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_connexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -69,22 +85,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|c:\\users\\gianni\\source\\repos\\projet c#\\form_administration.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|solutionrelative:form_administration.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|c:\\users\\gianni\\source\\repos\\projet c#\\form_connexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|solutionrelative:form_connexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|c:\\users\\gianni\\source\\repos\\projet c#\\form_inventaire.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|solutionrelative:form_inventaire.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|c:\\users\\gianni\\source\\repos\\projet c#\\form_menu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|solutionrelative:form_menu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|c:\\users\\gianni\\source\\repos\\projet c#\\form_inventaire.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|solutionrelative:form_inventaire.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A9CAFC36-C26B-47F1-B90F-65924C4B29E6}|Projet C#.csproj|c:\\users\\gianni\\source\\repos\\projet c#\\form_echange.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
@@ -138,17 +138,17 @@
       "DocumentGroups": [
         {
           "DockedHeight": 142,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
               "Title": "form_menu.cs",
               "DocumentMoniker": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_menu.cs",
               "RelativeDocumentMoniker": "form_menu.cs",
-              "ToolTip": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_menu.cs*",
-              "RelativeToolTip": "form_menu.cs*",
-              "ViewState": "AgIAAE4AAAAAAAAAAIA2wAgAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_menu.cs",
+              "RelativeToolTip": "form_menu.cs",
+              "ViewState": "AgIAAHQAAAAAAAAAAAAewAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-16T12:54:01.565Z",
               "IsPinned": true,
@@ -156,7 +156,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 11,
               "Title": "class_objet.cs",
               "DocumentMoniker": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\Models\\class_objet.cs",
               "RelativeDocumentMoniker": "Models\\class_objet.cs",
@@ -170,16 +170,55 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 4,
               "Title": "form_inventaire.cs",
               "DocumentMoniker": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_inventaire.cs",
               "RelativeDocumentMoniker": "form_inventaire.cs",
               "ToolTip": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_inventaire.cs",
               "RelativeToolTip": "form_inventaire.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAALcAAAAAAAAAAAAowMYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-16T14:27:53.026Z",
               "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "form_connexion.cs",
+              "DocumentMoniker": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_connexion.cs",
+              "RelativeDocumentMoniker": "form_connexion.cs",
+              "ToolTip": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_connexion.cs",
+              "RelativeToolTip": "form_connexion.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAowDwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-26T17:11:22.642Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "form_echange.cs",
+              "DocumentMoniker": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_echange.cs",
+              "RelativeDocumentMoniker": "form_echange.cs",
+              "ToolTip": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_echange.cs*",
+              "RelativeToolTip": "form_echange.cs*",
+              "ViewState": "AgIAAAkBAAAAAAAAAADgv9oAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-16T14:28:43.652Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "form_inventaire.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_inventaire.Designer.cs",
+              "RelativeDocumentMoniker": "form_inventaire.Designer.cs",
+              "ToolTip": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_inventaire.Designer.cs",
+              "RelativeToolTip": "form_inventaire.Designer.cs",
+              "ViewState": "AgIAAJsAAAAAAAAAAAAewBYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-16T09:26:36.488Z",
               "EditorCaption": ""
             },
             {
@@ -192,7 +231,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
+              "Title": "form_menu.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_menu.Designer.cs",
+              "RelativeDocumentMoniker": "form_menu.Designer.cs",
+              "ToolTip": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_menu.Designer.cs",
+              "RelativeToolTip": "form_menu.Designer.cs",
+              "ViewState": "AgIAAGoAAAAAAAAAAAAewCMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-16T12:46:15.919Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "form_echange.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_echange.Designer.cs",
+              "RelativeDocumentMoniker": "form_echange.Designer.cs",
+              "ToolTip": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_echange.Designer.cs",
+              "RelativeToolTip": "form_echange.Designer.cs",
+              "ViewState": "AgIAAH0AAAAAAAAAAAAewA8AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-03T14:48:01.119Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-16T12:45:29.524Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "form_cr_offres.cs",
               "DocumentMoniker": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_cr_offres.cs",
               "RelativeDocumentMoniker": "form_cr_offres.cs",
@@ -205,20 +283,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "form_echange.cs",
-              "DocumentMoniker": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_echange.cs",
-              "RelativeDocumentMoniker": "form_echange.cs",
-              "ToolTip": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_echange.cs",
-              "RelativeToolTip": "form_echange.cs",
-              "ViewState": "AgIAAGEAAAAAAAAAAAAewNYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-16T14:28:43.652Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "form_cr_offres.Designer.cs",
               "DocumentMoniker": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_cr_offres.Designer.cs",
               "RelativeDocumentMoniker": "form_cr_offres.Designer.cs",
@@ -231,7 +296,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 10,
               "Title": "form_mon_offre.cs",
               "DocumentMoniker": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_mon_offre.cs",
               "RelativeDocumentMoniker": "form_mon_offre.cs",
@@ -244,7 +309,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 12,
               "Title": "form_mon_offre.cs [Conception]",
               "DocumentMoniker": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_mon_offre.cs",
               "RelativeDocumentMoniker": "form_mon_offre.cs",
@@ -256,19 +321,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 13,
               "Title": "form_echange.cs [Conception]",
               "DocumentMoniker": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_echange.cs",
               "RelativeDocumentMoniker": "form_echange.cs",
-              "ToolTip": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_echange.cs [Conception]",
-              "RelativeToolTip": "form_echange.cs [Conception]",
+              "ToolTip": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_echange.cs [Conception]*",
+              "RelativeToolTip": "form_echange.cs [Conception]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-03T12:00:46.509Z",
               "EditorCaption": " [Conception]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 14,
               "Title": "form_cr_offres.cs [Conception]",
               "DocumentMoniker": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_cr_offres.cs",
               "RelativeDocumentMoniker": "form_cr_offres.cs",
@@ -280,7 +345,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 15,
               "Title": "UserManager.cs",
               "DocumentMoniker": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\UserManager.cs",
               "RelativeDocumentMoniker": "UserManager.cs",
@@ -292,32 +357,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-16T12:45:29.524Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "form_echange.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_echange.Designer.cs",
-              "RelativeDocumentMoniker": "form_echange.Designer.cs",
-              "ToolTip": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_echange.Designer.cs",
-              "RelativeToolTip": "form_echange.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-03T14:48:01.119Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 18,
               "Title": "SchoolContext.cs",
               "DocumentMoniker": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\Data\\SchoolContext.cs",
               "RelativeDocumentMoniker": "Data\\SchoolContext.cs",
@@ -329,7 +369,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 19,
               "Title": "DbSetup.cs",
               "DocumentMoniker": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\Data\\DbSetup.cs",
               "RelativeDocumentMoniker": "Data\\DbSetup.cs",
@@ -341,7 +381,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 20,
               "Title": "form_administration.Designer.cs",
               "DocumentMoniker": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_administration.Designer.cs",
               "RelativeDocumentMoniker": "form_administration.Designer.cs",
@@ -350,42 +390,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-16T13:04:22.176Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "form_connexion.cs",
-              "DocumentMoniker": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_connexion.cs",
-              "RelativeDocumentMoniker": "form_connexion.cs",
-              "ToolTip": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_connexion.cs",
-              "RelativeToolTip": "form_connexion.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAQwDUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-26T17:11:22.642Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "form_menu.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_menu.Designer.cs",
-              "RelativeDocumentMoniker": "form_menu.Designer.cs",
-              "ToolTip": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_menu.Designer.cs",
-              "RelativeToolTip": "form_menu.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-16T12:46:15.919Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "form_inventaire.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_inventaire.Designer.cs",
-              "RelativeDocumentMoniker": "form_inventaire.Designer.cs",
-              "ToolTip": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_inventaire.Designer.cs",
-              "RelativeToolTip": "form_inventaire.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-16T09:26:36.488Z"
             },
             {
               "$type": "Document",
@@ -496,18 +500,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "form_connexion.cs [Conception]",
               "DocumentMoniker": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_connexion.cs",
               "RelativeDocumentMoniker": "form_connexion.cs",
               "ToolTip": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_connexion.cs [Conception]",
               "RelativeToolTip": "form_connexion.cs [Conception]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-26T13:32:28.026Z"
+              "WhenOpened": "2025-10-26T13:32:28.026Z",
+              "EditorCaption": " [Conception]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "form_administration.cs [Conception]",
               "DocumentMoniker": "C:\\Users\\Gianni\\source\\repos\\Projet C#\\form_administration.cs",
               "RelativeDocumentMoniker": "form_administration.cs",

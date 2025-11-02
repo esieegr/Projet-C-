@@ -29,6 +29,9 @@ namespace Projet_C_
             comboBox_type.SelectedIndex = 0;
             comboBox_etat.SelectedIndex = 0;
 
+            // Attacher l'événement pour le bouton Disponible/Indisponible
+            button4.Click += button_toggle_disponibilite_Click;
+
             // Assure le schéma (colonnes) puis charge la liste
             this.Shown += async (_, __) =>
             {
@@ -158,6 +161,38 @@ namespace Projet_C_
                 return;
             }
             _draft.Remove(sel);
+        }
+
+        // ✅ NOUVEAU : BOUTON TOGGLE DISPONIBILITÉ
+        private void button_toggle_disponibilite_Click(object sender, EventArgs e)
+        {
+            if (listBox_marche.SelectedItem is not class_objet sel)
+            {
+                MessageBox.Show("Veuillez sélectionner un objet dans la liste.", 
+                    "Sélection requise", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Inverser la disponibilité
+            sel.disponible = !sel.disponible;
+
+            // Message de confirmation
+            string statut = sel.disponible ? "disponible" : "indisponible";
+            MessageBox.Show($"L'objet '{sel.Nom}' est maintenant {statut}.\n\nN'oubliez pas de sauvegarder pour enregistrer les modifications.", 
+                "Disponibilité modifiée", 
+                MessageBoxButtons.OK, 
+                MessageBoxIcon.Information);
+
+            // Rafraîchir l'affichage
+            int selectedIndex = listBox_marche.SelectedIndex;
+            listBox_marche.DataSource = null;
+            listBox_marche.DataSource = _draft;
+            listBox_marche.DisplayMember = "Nom";
+            listBox_marche.ValueMember = "Id";
+            if (selectedIndex >= 0 && selectedIndex < listBox_marche.Items.Count)
+                listBox_marche.SelectedIndex = selectedIndex;
         }
     }
 }

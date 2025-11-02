@@ -14,6 +14,11 @@ namespace Projet_C_
 {
     public partial class form_connexion : Form
     {
+        /// <summary>
+        /// Utilisateur connecté après validation
+        /// </summary>
+        public class_utilisateur? UtilisateurConnecte { get; private set; }
+
         public form_connexion()
         {
             InitializeComponent();
@@ -23,7 +28,7 @@ namespace Projet_C_
         private void ChargerUtilisateurs()
         {
             using var db = new SchoolContext();
-            var utilisateurs = db.Utilisateurs.ToList();
+            var utilisateurs = db.Utilisateurs.OrderBy(u => u.Pseudo).ToList();
             
             comboBox_utilisateurs.Items.Clear();
             foreach (var utilisateur in utilisateurs)
@@ -39,25 +44,46 @@ namespace Projet_C_
 
         private void button_connexion_Click(object sender, EventArgs e)
         {
-            // sel = utilisateur choisi dans ta liste/combobox
-            var sel = (class_utilisateur)comboBox_utilisateurs.SelectedItem; // adapte au nom de ton contrôle
+            // Récupérer l'utilisateur sélectionné
+            var sel = comboBox_utilisateurs.SelectedItem as class_utilisateur;
+            
             if (sel != null)
             {
-                var menu = new form_menu(sel);   // ⬅️ passe l’utilisateur
-                menu.Show();
-                this.Hide();
+                // Stocker l'utilisateur connecté
+                UtilisateurConnecte = sel;
+                
+                // Indiquer que la connexion est réussie
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             else
             {
-                MessageBox.Show("Veuillez sélectionner un utilisateur.");
+                MessageBox.Show("Veuillez sélectionner un utilisateur.", 
+                    "Sélection requise", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Warning);
             }
-
         }
 
         private void button_administration_Click(object sender, EventArgs e)
         {
+            // Créer le formulaire d'administration sans référence au menu
             var formAdmin = new form_administration();
-            formAdmin.Show();
+            
+            // Afficher en mode modal
+            var result = formAdmin.ShowDialog();
+            
+            // ✅ TOUJOURS recharger la liste après fermeture (OK ou Cancel)
+            ChargerUtilisateurs();
+            
+            // Message optionnel si l'utilisateur a sauvegardé
+            if (result == DialogResult.OK)
+            {
+                MessageBox.Show("Liste des utilisateurs mise à jour.", 
+                    "Mise à jour", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Information);
+            }
         }
     }
 }
